@@ -167,6 +167,12 @@ scratch. This page gets rid of all links and provides the needed markup only.
                                 <li class="nav-item">
                                     <a href="#" class="nav-link">
                                         <i class="fas fa-plus nav-icon"></i>
+                                        <p>Pengajuan Perencanaan</p>
+                                    </a>
+                                </li>
+                                <li class="nav-item">
+                                    <a href="#" class="nav-link">
+                                        <i class="fas fa-plus nav-icon"></i>
                                         <p>Pengajuan Penambahan</p>
                                     </a>
                                 </li>
@@ -179,7 +185,7 @@ scratch. This page gets rid of all links and provides the needed markup only.
                                 <li class="nav-item">
                                     <a href="#" class="nav-link">
                                         <i class="fas fa-redo nav-icon"></i>
-                                        <p>Pengajuan Pembaharuan</p>
+                                        <p>Pengajuan Pergantian</p>
                                     </a>
                                 </li>
                             </ul>
@@ -188,7 +194,7 @@ scratch. This page gets rid of all links and provides the needed markup only.
                             <a href="#" class="nav-link">
                                 <i class="nav-icon fas fa-shoe-prints"></i>
                                 <p>
-                                    Rekam Jejak Aset
+                                    History Aset
                                     <i class="right fas fa-angle-left"></i>
                                 </p>
                             </a>
@@ -196,25 +202,25 @@ scratch. This page gets rid of all links and provides the needed markup only.
                                 <li class="nav-item">
                                     <a href="#" class="nav-link">
                                         <i class="fas fa-history nav-icon"></i>
-                                        <p>Jejak Penambahan Aset</p>
+                                        <p>History Penambahan Aset</p>
                                     </a>
                                 </li>
                                 <li class="nav-item">
                                     <a href="#" class="nav-link">
                                         <i class="fas fa-history nav-icon"></i>
-                                        <p>Jejak Perbaikan Aset</p>
+                                        <p>History Perbaikan Aset</p>
                                     </a>
                                 </li>
                                 <li class="nav-item">
                                     <a href="#" class="nav-link">
                                         <i class="fas fa-history nav-icon"></i>
-                                        <p>Jejak Pembaharuan Aset</p>
+                                        <p>History Pergantian Aset</p>
                                     </a>
                                 </li>
                                 <li class="nav-item">
                                     <a href="#" class="nav-link">
                                         <i class="fas fa-truck-moving nav-icon"></i>
-                                        <p>Jejak Mutasi Aset</p>
+                                        <p>History Mutasi Aset</p>
                                     </a>
                                 </li>
                             </ul>
