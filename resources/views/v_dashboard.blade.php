@@ -1,8 +1,6 @@
 @extends('layouts.v_main')
+@section('title', 'Dashboard')
 
-@section('title')
-    Dashboard
-@endsection
 @section('content')
     <h1>Selamat datang di halaman Dashboard</h1>
     <h2>Sistem Informasi Manajemen Aset PT. Dapensi Trio Usaha</h2>
