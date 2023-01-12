@@ -48,3 +48,7 @@ Route::get('/pengajuanperbaikan', function () {
 Route::get('/pengajuantambah', function () {
     return view('v_pengajuantambah');
 });
+
+Route::get('/users', function () {
+    return view('v_users');
+});

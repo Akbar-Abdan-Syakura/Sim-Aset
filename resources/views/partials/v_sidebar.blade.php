@@ -16,7 +16,7 @@
                         alt="User Image">
                 </div>
                 <div class="info">
-                    <a href="#" class="d-block">Admin (User Belum Beres)</a>
+                    <a href="/users" class="d-block">Admin (User Belum Beres)</a>
                 </div>
             </div>
 
