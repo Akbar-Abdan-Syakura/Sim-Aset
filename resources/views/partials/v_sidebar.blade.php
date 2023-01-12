@@ -28,7 +28,7 @@
                with font-awesome or any other icon font library -->
                     <li class="nav-item">
                         <a href="#" class="nav-link active">
-                            <i class="nav-icon fas fa-brain"></i>
+                            <i class="nav-icon fab fa-mdb"></i>
                             <p>
                                 Master Data
                                 <i class="right fas fa-angle-left"></i>
