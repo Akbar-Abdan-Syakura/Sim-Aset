@@ -179,42 +179,7 @@ scratch. This page gets rid of all links and provides the needed markup only.
                                 <li class="nav-item">
                                     <a href="#" class="nav-link">
                                         <i class="fas fa-redo nav-icon"></i>
-                                        <p>Pengajuan Pembaharuan</p>
-                                    </a>
-                                </li>
-                            </ul>
-                        </li>
-                        <li class="nav-item">
-                            <a href="#" class="nav-link">
-                                <i class="nav-icon fas fa-shoe-prints"></i>
-                                <p>
-                                    Rekam Jejak Aset
-                                    <i class="right fas fa-angle-left"></i>
-                                </p>
-                            </a>
-                            <ul class="nav nav-treeview">
-                                <li class="nav-item">
-                                    <a href="#" class="nav-link">
-                                        <i class="fas fa-history nav-icon"></i>
-                                        <p>Jejak Penambahan Aset</p>
-                                    </a>
-                                </li>
-                                <li class="nav-item">
-                                    <a href="#" class="nav-link">
-                                        <i class="fas fa-history nav-icon"></i>
-                                        <p>Jejak Perbaikan Aset</p>
-                                    </a>
-                                </li>
-                                <li class="nav-item">
-                                    <a href="#" class="nav-link">
-                                        <i class="fas fa-history nav-icon"></i>
-                                        <p>Jejak Pembaharuan Aset</p>
-                                    </a>
-                                </li>
-                                <li class="nav-item">
-                                    <a href="#" class="nav-link">
-                                        <i class="fas fa-truck-moving nav-icon"></i>
-                                        <p>Jejak Mutasi Aset</p>
+                                        <p>Pengajuan Pergantian</p>
                                     </a>
                                 </li>
                             </ul>
