@@ -1,8 +1,8 @@
 @extends('layouts.v_main')
 
 @section('title')
-    Dashboard
+    Monitoring Aset
 @endsection
 @section('content')
-    <h1>Daftar Barang Inventaris Aset Tetap PT. Dapensi Trio Usaha</h1>
+    <h1>Daftar Hasil Monitoring Aset</h1>
 @endsection

@@ -1,8 +1,8 @@
 @extends('layouts.v_main')
 
 @section('title')
-    Dashboard
+    Pengajuan Pergantian Aset
 @endsection
 @section('content')
-    <h1>Daftar Barang Inventaris Aset Tetap PT. Dapensi Trio Usaha</h1>
+    <h1>Form Pengajuan Pergantian Aset</h1>
 @endsection

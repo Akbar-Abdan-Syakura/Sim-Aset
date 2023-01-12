@@ -42,7 +42,7 @@
                                 </a>
                             </li>
                             <li class="nav-item">
-                                <a href="#" class="nav-link">
+                                <a href="/dafaset" class="nav-link">
                                     <i class="fas fa-archive nav-icon"></i>
                                     <p> Data Aset </p>
                                 </a>

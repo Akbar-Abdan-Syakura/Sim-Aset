@@ -1,8 +1,8 @@
 @extends('layouts.v_main')
 
 @section('title')
-    Dashboard
+    Data Kantor Cabang
 @endsection
 @section('content')
-    <h1>Daftar Barang Inventaris Aset Tetap PT. Dapensi Trio Usaha</h1>
+    <h1>Daftar Kantor Cabang PT. Dapensi Trio Usaha</h1>
 @endsection
