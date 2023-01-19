@@ -18,23 +18,23 @@ Route::get('/', function () {
 });
 
 Route::get('/dafaset', function () {
-    return view('v_dafaset');
+    return view('v_aset');
 });
 
 Route::get('/dafmonitoring', function () {
-    return view('v_dafmonitoring');
+    return view('v_monitoring');
 });
 
 Route::get('/dafrekomen', function () {
-    return view('v_dafrekomen');
+    return view('v_rekomendasi');
 });
 
 Route::get('/datacabang', function () {
-    return view('v_datacabang');
+    return view('v_cabang');
 });
 
 Route::get('/datauser', function () {
-    return view('v_datauser');
+    return view('v_user');
 });
 
 Route::get('/pengajuan', function () {

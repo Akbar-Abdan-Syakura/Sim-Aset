@@ -40,25 +40,25 @@
                         </a>
                         <ul class="nav nav-treeview">
                             <li class="nav-item">
-                                <a href="/datauser" class="nav-link">
+                                <a href="{{ url('user') }}" class="nav-link">
                                     <i class="fas fa-users nav-icon"></i>
                                     <p>Data User</p>
                                 </a>
                             </li>
                             <li class="nav-item">
-                                <a href="/dafaset" class="nav-link">
+                                <a href="{{ url('aset') }}" class="nav-link">
                                     <i class="fas fa-archive nav-icon"></i>
                                     <p> Data Aset </p>
                                 </a>
                             </li>
                             <li class="nav-item">
-                                <a href="/dafmonitoring" class="nav-link">
+                                <a href="{{ url('monitoring') }}" class="nav-link">
                                     <i class="nav-icon fas fa-eye"></i>
                                     <p>Data Monitoring Aset</p>
                                 </a>
                             </li>
                             <li class="nav-item">
-                                <a href="/datacabang" class="nav-link">
+                                <a href="{{ url('cabang') }}" class="nav-link">
                                     <i class="fas fa-building nav-icon"></i>
                                     <p>Data Kantor Cabang</p>
                                 </a>
@@ -66,7 +66,7 @@
                         </ul>
                     </li>
                     <li class="nav-item">
-                        <a href="/dafrekomen" class="nav-link">
+                        <a href="{{ url('rekomendasi') }}" class="nav-link">
                             <i class="nav-icon fas fa-lightbulb"></i>
                             <p>
                                 Data Rekomendasi Aset
@@ -74,7 +74,7 @@
                         </a>
                     </li>
                     <li class="nav-item">
-                        <a href="/pengajuan" class="nav-link">
+                        <a href="{{ url('pengajuan') }}" class="nav-link">
                             <i class="nav-icon fas fa-sticky-note"></i>
                             <p>
                                 Data Pengajuan Aset

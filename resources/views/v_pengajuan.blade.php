@@ -2,5 +2,5 @@
 @section('title', 'Pengajuan Pergantian Aset')
 
 @section('content')
-    <h1>Form Pengajuan Pergantian Aset</h1>
+    <h1>Pengajuan Aset</h1>
 @endsection
