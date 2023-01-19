@@ -52,7 +52,13 @@
                                 </a>
                             </li>
                             <li class="nav-item">
-                                <a href="datacabang" class="nav-link">
+                                <a href="/dafmonitoring" class="nav-link">
+                                    <i class="nav-icon fas fa-eye"></i>
+                                    <p>Data Monitoring Aset</p>
+                                </a>
+                            </li>
+                            <li class="nav-item">
+                                <a href="/datacabang" class="nav-link">
                                     <i class="fas fa-building nav-icon"></i>
                                     <p>Data Kantor Cabang</p>
                                 </a>
@@ -60,49 +66,20 @@
                         </ul>
                     </li>
                     <li class="nav-item">
-                        <a href="/dafmonitoring" class="nav-link">
-                            <i class="nav-icon fab fa-watchman-monitoring"></i>
-                            <p>
-                                Data Monitoring Aset
-                            </p>
-                        </a>
-                    </li>
-                    <li class="nav-item">
                         <a href="/dafrekomen" class="nav-link">
-                            <i class="nav-icon fas fa-unlock-alt"></i>
+                            <i class="nav-icon fas fa-lightbulb"></i>
                             <p>
                                 Data Rekomendasi Aset
                             </p>
                         </a>
                     </li>
                     <li class="nav-item">
-                        <a href="#" class="nav-link">
+                        <a href="/pengajuan" class="nav-link">
                             <i class="nav-icon fas fa-sticky-note"></i>
                             <p>
                                 Data Pengajuan Aset
-                                <i class="right fas fa-angle-left"></i>
                             </p>
                         </a>
-                        <ul class="nav nav-treeview">
-                            <li class="nav-item">
-                                <a href="/pengajuantambah" class="nav-link">
-                                    <i class="fas fa-plus nav-icon"></i>
-                                    <p>Pengajuan Penambahan</p>
-                                </a>
-                            </li>
-                            <li class="nav-item">
-                                <a href="/pengajuanperbaikan" class="nav-link">
-                                    <i class="fas fa-tools nav-icon"></i>
-                                    <p>Pengajuan Perbaikan</p>
-                                </a>
-                            </li>
-                            <li class="nav-item">
-                                <a href="/pengajuanganti" class="nav-link">
-                                    <i class="fas fa-redo nav-icon"></i>
-                                    <p>Pengajuan Pergantian</p>
-                                </a>
-                            </li>
-                        </ul>
                     </li>
                 </ul>
             </nav>

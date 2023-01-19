@@ -37,16 +37,8 @@ Route::get('/datauser', function () {
     return view('v_datauser');
 });
 
-Route::get('/pengajuanganti', function () {
-    return view('v_pengajuanganti');
-});
-
-Route::get('/pengajuanperbaikan', function () {
-    return view('v_pengajuanperbaikan');
-});
-
-Route::get('/pengajuantambah', function () {
-    return view('v_pengajuantambah');
+Route::get('/pengajuan', function () {
+    return view('v_pengajuan');
 });
 
 Route::get('/users', function () {
