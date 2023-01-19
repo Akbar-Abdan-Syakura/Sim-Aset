@@ -1,6 +1,17 @@
 <?php
 
+
+
+
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\asetController;
+use App\Http\Controllers\userController;
+use App\Http\Controllers\cabangController;
+use App\Http\Controllers\dashboardController;
+use App\Http\Controllers\pengajuanController;
+use App\Http\Controllers\monitoringController;
+use App\Http\Controllers\rekomendasiController;
+use App\Http\Controllers\detail_userController;
 
 /*
 |--------------------------------------------------------------------------
@@ -13,34 +24,18 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/', function () {
-    return view('v_dashboard');
-});
+Route::get('/', [dashboardController::class, 'index']);
 
-Route::get('/dafaset', function () {
-    return view('v_aset');
-});
+Route::get('/aset', [asetController::class, 'index']);
 
-Route::get('/dafmonitoring', function () {
-    return view('v_monitoring');
-});
+Route::get('/monitoring', [monitoringController::class, 'index']);
 
-Route::get('/dafrekomen', function () {
-    return view('v_rekomendasi');
-});
+Route::get('/rekomendasi', [rekomendasiController::class, 'index']);
 
-Route::get('/datacabang', function () {
-    return view('v_cabang');
-});
+Route::get('/cabang', [cabangController::class, 'index']);
 
-Route::get('/datauser', function () {
-    return view('v_user');
-});
+Route::get('/user', [userController::class, 'index']);
 
-Route::get('/pengajuan', function () {
-    return view('v_pengajuan');
-});
+Route::get('/pengajuan', [pengajuanController::class, 'index']);
 
-Route::get('/users', function () {
-    return view('v_users');
-});
+Route::get('/detail_user', [detail_userController::class, 'index']);

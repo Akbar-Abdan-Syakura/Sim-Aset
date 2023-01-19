@@ -74,7 +74,7 @@
                                </p>
                            </li>
                            <li class="user-footer">
-                               <a href="/users" class="btn btn-default btn-flat">Profile</a>
+                               <a href="{{ url('detail_user') }}" class="btn btn-default btn-flat">Profile</a>
                                <a href="#" class="btn btn-default btn-flat float-right">Sign out</a>
                            </li>
                        </ul>
