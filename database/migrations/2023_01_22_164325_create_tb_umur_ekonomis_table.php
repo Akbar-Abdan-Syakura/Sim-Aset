@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class CreateUmurEkonomisTable extends Migration
+class CreateTbUmurEkonomisTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,7 +13,7 @@ class CreateUmurEkonomisTable extends Migration
      */
     public function up()
     {
-        Schema::create('umur_ekonomis', function (Blueprint $table) {
+        Schema::create('tb_umur_ekonomis', function (Blueprint $table) {
             $table->id();
             $table->string('kelompok');
             $table->integer('umur_ekonomis');
@@ -28,6 +28,6 @@ class CreateUmurEkonomisTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('umur_ekonomis');
+        Schema::dropIfExists('tb_umur_ekonomis');
     }
 }
