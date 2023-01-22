@@ -8,4 +8,9 @@ use Illuminate\Database\Eloquent\Model;
 class tb_cabang extends Model
 {
     use HasFactory;
+
+    protected $fillable = [
+        'nama_cbng',
+        'alamat',
+    ];
 }

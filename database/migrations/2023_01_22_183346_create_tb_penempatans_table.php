@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class CreateTbUmurEkonomisTable extends Migration
+class CreateTbPenempatansTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,10 +13,9 @@ class CreateTbUmurEkonomisTable extends Migration
      */
     public function up()
     {
-        Schema::create('tb_umur_ekonomis', function (Blueprint $table) {
+        Schema::create('tb_penempatans', function (Blueprint $table) {
             $table->id();
-            $table->string('kelompok');
-            $table->string('umur_ekonomis');
+            $table->string('penempatan');
             $table->timestamps();
         });
     }
@@ -28,6 +27,6 @@ class CreateTbUmurEkonomisTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('tb_umur_ekonomis');
+        Schema::dropIfExists('tb_penempatans');
     }
 }

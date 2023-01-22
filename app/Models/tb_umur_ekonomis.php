@@ -8,4 +8,9 @@ use Illuminate\Database\Eloquent\Model;
 class tb_umur_ekonomis extends Model
 {
     use HasFactory;
+
+    protected $fillable = [
+        'kelompok',
+        'umur_ekonomis',
+    ];
 }

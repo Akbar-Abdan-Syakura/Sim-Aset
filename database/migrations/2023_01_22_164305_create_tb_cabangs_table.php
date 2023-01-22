@@ -15,35 +15,8 @@ class CreateTbCabangsTable extends Migration
     {
         Schema::create('tb_cabangs', function (Blueprint $table) {
             $table->id();
-            $table->string('kd_cabang');
             $table->string('nama_cbng');
             $table->text('alamat');
-            $table->enum('penempatan', [
-                'Kantor',
-                'Lorong Bawah',
-                'Mitra',
-                'Parkir Belakang',
-                'Parkir Depan',
-                'Ruang Atas Pantry',
-                'Ruang Dapur',
-                'Ruang Dirut',
-                'Ruang Gudang',
-                'Ruang IT',
-                'Ruang Keuangan',
-                'Ruang Loby',
-                'Ruang Lorong Atas',
-                'Ruang Luar',
-                'Ruang Mushola',
-                'Ruang Operasi dan Pemasaran',
-                'Ruang Pantry',
-                'Ruang Rapat',
-                'Ruang Remunerasi dan Layanan',
-                'Ruang SDM dan Sarana',
-                'Ruang Server',
-                'Ruang Setper dan Legal',
-                'Ruang Tamu',
-                'Ruang Umum dan SDM'
-            ]);
             $table->timestamps();
         });
     }
