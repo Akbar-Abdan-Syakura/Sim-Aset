@@ -15,7 +15,7 @@ class CreateTbPenempatansTable extends Migration
     {
         Schema::create('tb_penempatans', function (Blueprint $table) {
             $table->id();
-            $table->string('penempatan');
+            $table->string('penempatan')->unique();
             $table->timestamps();
         });
     }

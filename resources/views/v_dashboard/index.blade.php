@@ -11,12 +11,13 @@
                     <div class="small-box bg-info">
                         <div class="inner">
                             <h3>2.213</h3>
+                            <br>
                             <p>Total Aset</p>
                         </div>
                         <div class="icon">
-                            <i class="ion ion-bag"></i>
+                            <i class="fas fa-archive"></i>
                         </div>
-                        <a href="#" class="small-box-footer">More info <i class="fas fa-arrow-circle-right"></i></a>
+                        <a href="/aset" class="small-box-footer">More info <i class="fas fa-arrow-circle-right"></i></a>
                     </div>
                 </div>
 
@@ -25,12 +26,14 @@
                     <div class="small-box bg-success">
                         <div class="inner">
                             <h3>31</h3>
+                            <br>
                             <p>Total Rekomendasi</p>
                         </div>
                         <div class="icon">
-                            <i class="ion ion-stats-bars"></i>
+                            <i class="fas fa-lightbulb"></i>
                         </div>
-                        <a href="#" class="small-box-footer">More info <i class="fas fa-arrow-circle-right"></i></a>
+                        <a href="/rekomendasi" class="small-box-footer">More info <i
+                                class="fas fa-arrow-circle-right"></i></a>
                     </div>
                 </div>
 
@@ -39,12 +42,14 @@
                     <div class="small-box bg-warning">
                         <div class="inner">
                             <h3>18</h3>
-                            <p>Total Pending Pengajuan</p>
+                            <br>
+                            <p>Total Pengajuan</p>
                         </div>
                         <div class="icon">
-                            <i class="ion ion-person-add"></i>
+                            <i class="fas fa-sticky-note"></i>
                         </div>
-                        <a href="#" class="small-box-footer">More info <i class="fas fa-arrow-circle-right"></i></a>
+                        <a href="/pengajuan" class="small-box-footer">More info <i
+                                class="fas fa-arrow-circle-right"></i></a>
                     </div>
                 </div>
 
@@ -53,12 +58,14 @@
                     <div class="small-box bg-danger">
                         <div class="inner">
                             <h3>121</h3>
-                            <p>Total Aset Yang Mengalami Kerusakan</p>
+                            <br>
+                            <p>Total Data Aset Rusak & Melewati Masa Ekonomis</p>
                         </div>
                         <div class="icon">
-                            <i class="ion ion-pie-graph"></i>
+                            <i class="fas fa-eye"></i>
                         </div>
-                        <a href="#" class="small-box-footer">More info <i class="fas fa-arrow-circle-right"></i></a>
+                        <a href="/monitoring" class="small-box-footer">More info <i
+                                class="fas fa-arrow-circle-right"></i></a>
                     </div>
                 </div>
 

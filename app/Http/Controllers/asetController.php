@@ -9,6 +9,6 @@ class asetController extends Controller
 {
     public function index()
     {
-        return view('v_aset');
+        return view('v_aset.index');
     }
 }

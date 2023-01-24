@@ -13,4 +13,9 @@ class tb_cabang extends Model
         'nama_cbng',
         'alamat',
     ];
+
+    public function aset()
+    {
+        return $this->hasMany(tb_aset::class, 'cabang_id', 'id');
+    }
 }

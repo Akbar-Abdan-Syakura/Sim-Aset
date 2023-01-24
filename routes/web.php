@@ -37,5 +37,7 @@ Route::get('/cabang', [cabangController::class, 'index']);
 Route::get('/user', [userController::class, 'index']);
 
 Route::get('/pengajuan', [pengajuanController::class, 'index']);
+Route::get('/status_pengajuan_setuju', [pengajuanController::class, 'setuju']);
+Route::get('/status_pengajuan_tdksetuju', [pengajuanController::class, 'tdksetuju']);
 
 Route::get('/detail_user', [detail_userController::class, 'index']);

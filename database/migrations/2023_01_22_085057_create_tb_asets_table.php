@@ -19,6 +19,7 @@ class CreateTbAsetsTable extends Migration
             $table->string('nama');
             $table->date('tgl_perolehan');
             $table->foreignId('cabang_id');
+            $table->foreignId('penempatan_id');
             $table->text('spek');
             $table->integer('qty');
             $table->foreignId('umur_ekonomis_id');

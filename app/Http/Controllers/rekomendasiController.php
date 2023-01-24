@@ -9,6 +9,6 @@ class rekomendasiController extends Controller
 {
     public function index()
     {
-        return view('v_rekomendasi');
+        return view('v_rekomendasi.index');
     }
 }

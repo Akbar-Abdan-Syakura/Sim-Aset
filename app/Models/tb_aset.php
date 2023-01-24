@@ -21,8 +21,8 @@ class tb_aset extends Model
         'konndisi_id',
         'harga',
     ];
-    // public function cabang()
-    // {
-    //     return $this->belongsTo(tb_cabang::class, 'cabang_id', 'id');
-    // }
+    public function cabang()
+    {
+        return $this->belongsTo(tb_cabang::class, 'cabang_id', 'id');
+    }
 }

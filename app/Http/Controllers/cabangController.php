@@ -9,6 +9,6 @@ class cabangController extends Controller
 {
     public function index()
     {
-        return view('v_cabang');
+        return view('v_cabang.index');
     }
 }

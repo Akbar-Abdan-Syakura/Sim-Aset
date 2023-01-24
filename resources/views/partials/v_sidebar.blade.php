@@ -31,6 +31,14 @@
                     <!-- Add icons to the links using the .nav-icon class
                with font-awesome or any other icon font library -->
                     <li class="nav-item">
+                        <a href="/" class="nav-link">
+                            <i class="nav-icon fas fa-home"></i>
+                            <p>
+                                Dashboard
+                            </p>
+                        </a>
+                    </li>
+                    <li class="nav-item">
                         <a href="#" class="nav-link">
                             <i class="nav-icon fab fa-mdb"></i>
                             <p>
@@ -40,25 +48,25 @@
                         </a>
                         <ul class="nav nav-treeview">
                             <li class="nav-item">
-                                <a href="{{ url('user') }}" class="nav-link">
+                                <a href="/user" class="nav-link">
                                     <i class="fas fa-users nav-icon"></i>
                                     <p>Data User</p>
                                 </a>
                             </li>
                             <li class="nav-item">
-                                <a href="{{ url('aset') }}" class="nav-link">
+                                <a href="/aset" class="nav-link">
                                     <i class="fas fa-archive nav-icon"></i>
                                     <p> Data Aset </p>
                                 </a>
                             </li>
                             <li class="nav-item">
-                                <a href="{{ url('monitoring') }}" class="nav-link">
+                                <a href="/monitoring" class="nav-link">
                                     <i class="nav-icon fas fa-eye"></i>
                                     <p>Data Monitoring Aset</p>
                                 </a>
                             </li>
                             <li class="nav-item">
-                                <a href="{{ url('cabang') }}" class="nav-link">
+                                <a href="/cabang" class="nav-link">
                                     <i class="fas fa-building nav-icon"></i>
                                     <p>Data Kantor Cabang</p>
                                 </a>
@@ -66,7 +74,7 @@
                         </ul>
                     </li>
                     <li class="nav-item">
-                        <a href="{{ url('rekomendasi') }}" class="nav-link">
+                        <a href="/rekomendasi" class="nav-link">
                             <i class="nav-icon fas fa-lightbulb"></i>
                             <p>
                                 Data Rekomendasi Aset
@@ -74,12 +82,35 @@
                         </a>
                     </li>
                     <li class="nav-item">
-                        <a href="{{ url('pengajuan') }}" class="nav-link">
+                        <a href="/pengajuan" class="nav-link">
                             <i class="nav-icon fas fa-sticky-note"></i>
                             <p>
                                 Data Pengajuan Aset
                             </p>
                         </a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="#" class="nav-link">
+                            <i class="nav-icon fab fa-mdb"></i>
+                            <p>
+                                Status Pengajuan
+                                <i class="right fas fa-angle-left"></i>
+                            </p>
+                        </a>
+                        <ul class="nav nav-treeview">
+                            <li class="nav-item">
+                                <a href="/status_pengajuan_setuju" class="nav-link">
+                                    <i class="fas fa-clipboard-check nav-icon"></i>
+                                    <p>Disetujui</p>
+                                </a>
+                            </li>
+                            <li class="nav-item">
+                                <a href="/status_pengajuan_tdksetuju" class="nav-link">
+                                    <i class="fas fa-exclamation-triangle nav-icon"></i>
+                                    <p>Tidak Disetujui</p>
+                                </a>
+                            </li>
+                        </ul>
                     </li>
                 </ul>
             </nav>

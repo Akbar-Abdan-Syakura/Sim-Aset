@@ -9,6 +9,14 @@ class pengajuanController extends Controller
 {
     public function index()
     {
-        return view('v_pengajuan');
+        return view('v_pengajuan.index');
+    }
+    public function setuju()
+    {
+        return view('v_pengajuan.setuju');
+    }
+    public function tdksetuju()
+    {
+        return view('v_pengajuan.tdksetuju');
     }
 }
