@@ -1,6 +1,6 @@
 @extends('layouts.v_main')
-@section('title', 'Profiles')
+@section('title', 'Profiles User')
 
 @section('content')
-    <h1>Profile User</h1>
+    {{-- detail user pake form edit --}}
 @endsection

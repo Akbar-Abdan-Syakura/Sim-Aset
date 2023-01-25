@@ -2,15 +2,17 @@
 
 namespace App\Http\Controllers;
 
-use Illuminate\Http\Request;
-use App\Http\Controllers\Controller;
 use App\Models\tb_cabang;
+use Illuminate\Http\Request;
+use Illuminate\Support\Facades\DB;
+use App\Http\Controllers\Controller;
 
 class cabangController extends Controller
 {
     public function index()
     {
-        return view('v_cabang.index');
+        $data = tb_cabang::all();
+        return view('v_cabang.index', ['tb_cabangs' => $data]);
     }
 
     // public function store(Request $request)

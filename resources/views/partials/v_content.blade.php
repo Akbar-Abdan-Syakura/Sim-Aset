@@ -1,6 +1,6 @@
 <div class="content-wrapper">
     <!-- Content Header (Page header) -->
-    <div class="content-header">
+    <section class="content-header">
         <div class="container-fluid">
             <div class="row mb-2">
                 <div class="col-sm-8">
@@ -14,18 +14,21 @@
                 <!-- /.col -->
             </div><!-- /.row -->
         </div><!-- /.container-fluid -->
-    </div>
+    </section>
     <!-- /.content-header -->
 
     <!-- Main content -->
-    <div class="content">
+    <section class="content">
         <div class="container-fluid">
-            <div class="text-center">
-                @yield('content')
+            <div class="row">
+                <div class="col-12">
+                    <!-- content -->
+                    @yield('content')
+                    <!-- /.content -->
+                </div>
             </div>
-            <!-- /.text-center -->
         </div>
         <!-- /.container-fluid -->
-    </div>
+    </section>
     <!-- /.content -->
 </div>
