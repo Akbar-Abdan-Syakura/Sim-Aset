@@ -25,7 +25,7 @@ class CreateTbAsetsTable extends Migration
             $table->foreignId('umur_ekonomis_id');
             $table->integer('usia_aset');
             $table->foreignId('kondisi_id');
-            $table->decimal('harga');
+            $table->integer('harga');
             $table->timestamps();
         });
     }

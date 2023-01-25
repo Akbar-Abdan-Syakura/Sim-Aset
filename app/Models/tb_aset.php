@@ -19,11 +19,26 @@ class tb_aset extends Model
         'qty',
         'umur_ekonomis_id',
         'usia_aset',
-        'konndisi_id',
-        'harga',
+        'kondisi_id',
+        'harga'
     ];
     public function cabang()
     {
         return $this->belongsTo(tb_cabang::class, 'cabang_id', 'id');
+    }
+
+    public function penempatan()
+    {
+        return $this->belongsTo(tb_penempatan::class, 'penempatan_id', 'id');
+    }
+
+    public function umur()
+    {
+        return $this->belongsTo(tb_umur_ekonomis::class, 'umur_ekonomis_id', 'id');
+    }
+
+    public function kondisi()
+    {
+        return $this->belongsTo(tb_kondisi::class, 'kondisi_id', 'id');
     }
 }
