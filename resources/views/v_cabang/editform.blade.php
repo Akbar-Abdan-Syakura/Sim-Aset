@@ -6,8 +6,9 @@
         <div class="card-header">
             <h3 class="card-title">Edit Data Form</h3>
         </div>
-        <form action="{{ route('update.user') }}" method="POST">
+        <form action="{{ url('/cabang/update_cabang/' . $data->id) }}" method="POST">
             @csrf
+            @method('PATCH')
             <div class="card-body">
                 <div class="form-group">
                     <label for="editNamaCabang">Nama Kantor Cabang</label>

@@ -28,7 +28,7 @@
                             <td>{{ $row->nama_cbng }}</td>
                             <td>{{ $row->alamat }}</td>
                             <td class="text-md-center">
-                                <a href="{{ url('/cabang/edit_cabang/', $row->id) }}" class="btn btn-warning btn-sm">
+                                <a href="{{ url('/cabang/edit_cabang/' . $row->id) }}" class="btn btn-warning btn-sm">
                                     <i class="fas fa-edit"></i>
                                     Edit Data
                                 </a>

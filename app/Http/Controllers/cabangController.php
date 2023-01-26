@@ -22,12 +22,6 @@ class cabangController extends Controller
     {
         return view('v_cabang.addform');
     }
-    public function editform(tb_cabang $id)
-    {
-        $data = tb_cabang::find($id);
-        return view('v_cabang.editform', compact('data'));
-    }
-
 
     public function store(Request $request)
     {
@@ -52,6 +46,11 @@ class cabangController extends Controller
         } catch (\Exception $e) {
             return redirect('cabang')->with('error', 'Terjadi Kesalahan Saat Menambah Data.');
         }
+    }
+    public function editform($id)
+    {
+        $data = tb_cabang::find($id);
+        return view('v_cabang.editform', compact('data'));
     }
 
     public function update(Request $request)
