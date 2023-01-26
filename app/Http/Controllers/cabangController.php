@@ -53,23 +53,29 @@ class cabangController extends Controller
         return view('v_cabang.editform', compact('data'));
     }
 
-    public function update(Request $request)
+    public function update(Request $request, $id)
     {
-        $validateData = $request->validate([
-            'nama_cbng' => 'required|unique:tb_cabangs',
-            'alamat' => 'required',
-        ]);
+        try {
+            $cabang = tb_cabang::find($id);
+            $cabang->nama_cbng = $request->nama_cbng;
+            $cabang->alamat = $request->alamat;
+            $cabang->save();
 
-        // try {
-        // $cabang = tb_cabang::find($request->id);
-        // $cabang->update($validateData);
-        //     return redirect('cabang')->with('success', 'Data Berhasil Diubah!');
-        // } catch (\Exception $e) {
-        //     return redirect('cabang')->with('error', 'Terjadi Kesalahan Saat Mengubah Data.');
-        // }
+            return redirect('cabang')->with('success', 'Data Berhasil Diubah!');
+        } catch (\Exception $e) {
+            return redirect('cabang')->with('error', 'Terjadi Kesalahan Saat Mengubah Data.');
+        }
     }
 
-    public function destroy(Request $request)
+    public function destroy(Request $request, $id)
     {
+        try {
+            $cabang = tb_cabang::find($id);
+            $cabang->delete();
+
+            return redirect('cabang')->with('success', 'Data Berhasil Dihapus!');
+        } catch (\Exception $e) {
+            return redirect('cabang')->with('error', 'Terjadi Kesalahan Saat Mengubah Data.');
+        }
     }
 }

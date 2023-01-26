@@ -30,13 +30,44 @@
                             <td class="text-md-center">
                                 <a href="{{ url('/cabang/edit_cabang/' . $row->id) }}" class="btn btn-warning btn-sm">
                                     <i class="fas fa-edit"></i>
-                                    Edit Data
+                                    {{ __('Edit Data') }}
                                 </a>
-                                &nbsp;&nbsp;
-                                <a class="btn btn-danger btn-sm" id="delete">
-                                    <i class="fas fa-trash-alt"></i>
-                                    Hapus Data
+                                <br>
+                                <br>
+                                <!-- Button trigger modal delete -->
+                                <a class="btn btn-danger" data-toggle="modal" data-target="#ModalDelete{{ $row->id }}">
+                                    <i class="fas fa-trash"></i>
+                                    &nbsp;
+                                    {{ __('Delete') }}
                                 </a>
+                                <!-- Modal Delete -->
+                                <form action="{{ url('/cabang/' . $row->id) }}" method="POST">
+                                    @csrf
+                                    @method('DELETE')
+                                    <div class="modal fade" id="ModalDelete{{ $row->id }}" tabindex="-1"
+                                        role="dialog"aria-hidden="true">
+                                        <div class="modal-dialog" role="document">
+                                            <div class="modal-content">
+                                                <div class="modal-header">
+                                                    <h5 class="modal-title">{{ __('Kantor Cabang Delete') }}</h5>
+                                                    <button type="button" class="close" data-dismiss="modal"
+                                                        aria-label="Close">
+                                                        <span aria-hidden="true">&times;</span>
+                                                    </button>
+                                                </div>
+                                                <div class="modal-body">
+                                                    Apakah Anda Yakin Ingin Menghapus Data <b>{{ $row->nama_cbng }}</b>?
+                                                </div>
+                                                <div class="modal-footer">
+                                                    <button type="button" class="btn btn-secondary"
+                                                        data-dismiss="modal">{{ __('Cancel') }}</button>
+                                                    <button type="submit"
+                                                        class="btn btn-danger">{{ __('Delete Data') }}</button>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </form>
                             </td>
                         </tr>
                     @endforeach

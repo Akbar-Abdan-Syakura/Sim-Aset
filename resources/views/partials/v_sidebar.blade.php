@@ -89,29 +89,6 @@
                             </p>
                         </a>
                     </li>
-                    <li class="nav-item">
-                        <a href="#" class="nav-link">
-                            <i class="nav-icon fas fa-info-circle"></i>
-                            <p>
-                                Status Pengajuan
-                                <i class="right fas fa-angle-left"></i>
-                            </p>
-                        </a>
-                        <ul class="nav nav-treeview">
-                            <li class="nav-item">
-                                <a href="/status_pengajuan_setuju" class="nav-link">
-                                    <i class="fas fa-clipboard-check nav-icon"></i>
-                                    <p>Disetujui</p>
-                                </a>
-                            </li>
-                            <li class="nav-item">
-                                <a href="/status_pengajuan_tdksetuju" class="nav-link">
-                                    <i class="fas fa-exclamation-triangle nav-icon"></i>
-                                    <p>Tidak Disetujui</p>
-                                </a>
-                            </li>
-                        </ul>
-                    </li>
                 </ul>
             </nav>
             <!-- /.sidebar-menu -->

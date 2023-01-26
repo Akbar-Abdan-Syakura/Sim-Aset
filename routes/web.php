@@ -52,7 +52,8 @@ Route::get('/cabang/add_cabang', [cabangController::class, 'addform'])->name('ad
 Route::get('/cabang/edit_cabang/{id}', [cabangController::class, 'editform'])->name('edit.cabang');
 
 Route::post('/cabang/store_cabang', [cabangController::class, 'store'])->name('store.cabang');
-Route::post('/cabang/update_cabang/{id}', [cabangController::class, 'update'])->name('update.cabang');
+Route::patch('/cabang/update_cabang/{id}', [cabangController::class, 'update'])->name('update.cabang');
+Route::delete('/cabang/{id}', [cabangController::class, 'destroy'])->name('delete.cabang');
 
 // -------------------------------------------------------------------------------------
 

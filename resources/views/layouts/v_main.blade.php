@@ -78,6 +78,7 @@ scratch. This page gets rid of all links and provides the needed markup only.
     <script src="{{ asset('v_templates_lte/plugins/datatables-buttons/js/buttons.colVis.min.js') }}"></script>
     <script src="{{ asset('v_templates_lte/plugins/sweetalert2.all.min.js') }}"></script>
     <script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+    <script src="https://cdnjs.com/libraries/bootstrap-modal"></script>
     <!-- AdminLTE App -->
     <script src="{{ asset('v_templates_lte/dist/js/adminlte.min.js') }}"></script>
 
@@ -100,34 +101,6 @@ scratch. This page gets rid of all links and provides the needed markup only.
             });
         });
     </script>
-
-    <script type="text/javascript">
-        $(function() {
-            $(document).on('click', '#delete', function(e) {
-                e.preventDefault();
-                var link = $(this).attr("href");
-                Swal.fire({
-                    title: 'Apakah Anda Ingin Mengahapus Data ?',
-                    text: "Anda Tidak Dapat Mengembalikan Data Yang Sudah Dihapus!",
-                    icon: 'warning',
-                    showCancelButton: true,
-                    confirmButtonColor: '#3085d6',
-                    cancelButtonColor: '#d33',
-                    confirmButtonText: 'Yes'
-                }).then((result) => {
-                    if (result.isConfirmed) {
-                        Swal.fire(
-                            'Data Berhasil Dihapus!',
-                            'Data Anda Telah Terhapus.',
-                            'success'
-                        )
-                    }
-                });
-            });
-        });
-    </script>
-
-
 </body>
 
 </html>
