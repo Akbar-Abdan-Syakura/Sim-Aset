@@ -10,7 +10,7 @@ class pengajuanController extends Controller
 {
     public function index()
     {
-        $data = tb_pengajuan::get();
+        $data = tb_pengajuan::with('user')->get();
         return view('v_pengajuan.index', compact('data'));
     }
     public function setuju()

@@ -11,6 +11,7 @@ class tb_pengajuan extends Model
 
     protected $fillable = [
         'kd_pengajuan' => 'required|unique:tb_pengajuans',
+        'nama_user' => 'required',
         'nama_aset' => 'required',
         'qty' => 'required',
     ];

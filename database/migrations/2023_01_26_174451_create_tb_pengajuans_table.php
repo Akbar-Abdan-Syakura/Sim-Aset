@@ -16,6 +16,7 @@ class CreateTbPengajuansTable extends Migration
         Schema::create('tb_pengajuans', function (Blueprint $table) {
             $table->id();
             $table->string('kd_pengajuan');
+            $table->foreignId('user_id');
             $table->string('nama_aset');
             $table->integer('qty');
             $table->enum('status', ['Pending', 'Tidak Disetujui'])->default('Pending');
