@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\tb_pengajuan;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 
@@ -9,7 +10,8 @@ class pengajuanController extends Controller
 {
     public function index()
     {
-        return view('v_pengajuan.index');
+        $data = tb_pengajuan::get();
+        return view('v_pengajuan.index', compact('data'));
     }
     public function setuju()
     {

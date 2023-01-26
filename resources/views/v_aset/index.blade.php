@@ -4,7 +4,7 @@
 @section('content')
     <div class="card">
         <div class="card-header">
-            <a href="#" type="button" class="btn btn-success btn-md float-left">
+            <a href="/aset/add_aset" type="button" class="btn btn-success btn-md float-left">
                 <i class="fas fa-plus nav-icon"></i>
                 &nbsp;&nbsp;
                 Add Data
@@ -46,7 +46,7 @@
                             <td>{{ $row->kondisi->kondisi }}</td>
                             <td>{{ $row->harga }}</td>
                             <td class="text-sm-center">
-                                <a href="" class="btn btn-sm btn-warning">
+                                <a href="/aset/edit_aset" class="btn btn-sm btn-warning">
                                     Edit Data
                                     <i class="fas fa-edit"></i>
                                 </a>

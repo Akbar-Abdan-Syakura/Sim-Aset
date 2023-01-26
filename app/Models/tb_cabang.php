@@ -19,6 +19,6 @@ class tb_cabang extends Model
 
     public function aset()
     {
-        return $this->hasMany(tb_aset::class, 'cabang_id', 'id');
+        return $this->hasMany(tb_aset::class, 'aset_id', 'id');
     }
 }

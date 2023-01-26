@@ -6,7 +6,7 @@
         <div class="card-header">
             <h3 class="card-title">Edit Data Form</h3>
         </div>
-        <form action="" method="POST">
+        <form action="{{ route('update.user') }}" method="POST">
             @csrf
             <div class="card-body">
                 <div class="form-group">

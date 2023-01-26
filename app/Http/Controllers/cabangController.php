@@ -22,7 +22,7 @@ class cabangController extends Controller
     {
         return view('v_cabang.addform');
     }
-    public function formedit($id)
+    public function editform(tb_cabang $id)
     {
         $data = tb_cabang::find($id);
         return view('v_cabang.editform', compact('data'));
@@ -56,10 +56,10 @@ class cabangController extends Controller
 
     public function update(Request $request)
     {
-        // $validateData = $request->validate([
-        //     'nama_cbng' => 'required|unique:tb_cabangs',
-        //     'alamat' => 'required',
-        // ]);
+        $validateData = $request->validate([
+            'nama_cbng' => 'required|unique:tb_cabangs',
+            'alamat' => 'required',
+        ]);
 
         // try {
         // $cabang = tb_cabang::find($request->id);

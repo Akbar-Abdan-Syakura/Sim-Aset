@@ -1,28 +1,32 @@
 @extends('layouts.v_main')
-@section('title', 'Form Tambah Data Kantor Cabang')
+@section('title', 'Form Tambah Data User')
 
 @section('content')
     <div class="card card-primary">
         <div class="card-header">
             <h3 class="card-title">Isi Form</h3>
         </div>
-        <form action="{{ route('store.cabang') }}" method="POST">
+        <form action="{{ route('store.user') }}" method="POST">
             @csrf
             <div class="card-body">
                 <div class="form-group">
-                    <label for="inputNamaCabang">Nama Kantor Cabang Baru</label>
-                    <input type="text" class="form-control" id="inputNamaCabang" name="nama_cbng"
-                        placeholder="Enter Name Of The Branch Office">
+                    <label for="inputEmailUser">Nama User</label>
+                    <input type="text" class="form-control" id="inputNamaUser" name="name" placeholder="Enter Name">
                 </div>
                 <div class="form-group">
-                    <label for="inputAlamatCabang">Alamat</label>
-                    <textarea type="text" class="form-control" id="inputAlamatCabang" rows="3" name="alamat"
-                        placeholder="Enter Addresses"></textarea>
+                    <label for="inputEmailUser">Email</label>
+                    <textarea type="text" class="form-control" id="inputEmailUser" rows="3" name="email"
+                        placeholder="Enter Email"></textarea>
+                </div>
+                <div class="form-group">
+                    <label for="inputPasswordUser">Password</label>
+                    <input type="text" class="form-control" id="inputPasswordUser" rows="3" name="password"
+                        placeholder="Enter Password">
                 </div>
             </div>
             <div class="card-footer">
                 <button type="submit" class="btn btn-success swalDefaultSuccess">Submit</button>
-                <a href="/cabang" type="button" class="btn btn-outline-danger float-right">
+                <a href="/user" type="button" class="btn btn-outline-danger float-right">
                     <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor"
                         class="bi bi-arrow-right" viewBox="0 0 16 16">
                         <path fill-rule="evenodd"
