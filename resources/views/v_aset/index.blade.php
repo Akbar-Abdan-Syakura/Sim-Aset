@@ -34,7 +34,7 @@
                     @foreach ($result as $row)
                         <tr>
                             <td>{{ $i++ }}</td>
-                            <td>{{ $row->kd_row }}</td>
+                            <td>{{ $row->kd_aset }}</td>
                             <td>{{ $row->nama }}</td>
                             <td>{{ $row->tgl_perolehan }}</td>
                             <td>{{ $row->cabang->nama_cbng }}</td>
