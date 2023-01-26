@@ -4,7 +4,7 @@
 @section('content')
     <div class="card">
         <div class="card-header">
-            <a href="#" type="button" class="btn btn-success btn-md float-left">
+            <a href="/cabang/add_cabang" type="button" class="btn btn-success btn-md float-left">
                 <i class="fas fa-plus nav-icon"></i>
                 &nbsp;&nbsp;
                 Add Data
@@ -14,25 +14,28 @@
             <table id="example1" class="table table-bordered table-striped">
                 <thead>
                     <tr>
-                        <th>Id</th>
+                        <th>No.</th>
                         <th>Nama Cabang</th>
                         <th>Alamat</th>
                         <th>Action</th>
                     </tr>
                 </thead>
                 <tbody>
-                    @foreach ($tb_cabangs as $cabang)
+                    @php($i = 1)
+                    @foreach ($data as $row)
                         <tr>
-                            <td>{{ $cabang['id'] }}</td>
-                            <td>{{ $cabang['nama_cbng'] }}</td>
-                            <td>{{ $cabang['alamat'] }}</td>
+                            <td>{{ $row->id }}</td>
+                            <td>{{ $row->nama_cbng }}</td>
+                            <td>{{ $row->alamat }}</td>
                             <td class="text-md-center">
-                                <a href="" class="btn btn-warning btn-sm">
+                                <a href="{{ url('/cabang/edit_cabang/', $row->id) }}" class="btn btn-warning btn-sm">
                                     <i class="fas fa-edit"></i>
+                                    Edit Data
                                 </a>
                                 &nbsp;&nbsp;
-                                <a href="" class="btn btn-danger btn-sm">
+                                <a class="btn btn-danger btn-sm" id="delete">
                                     <i class="fas fa-trash-alt"></i>
+                                    Hapus Data
                                 </a>
                             </td>
                         </tr>

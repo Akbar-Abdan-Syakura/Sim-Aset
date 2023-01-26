@@ -14,7 +14,7 @@
             <table id="example1" class="table table-bordered table-striped">
                 <thead>
                     <tr>
-                        <th>Id</th>
+                        <th>No.</th>
                         <th>Kode Aset</th>
                         <th>Nama Aset</th>
                         <th>Tanggal Perolehan</th>
@@ -30,25 +30,30 @@
                     </tr>
                 </thead>
                 <tbody>
-                    @foreach ($tb_asets as $aset)
+                    @php($i = 1)
+                    @foreach ($result as $row)
                         <tr>
-                            <td>{{ $aset['id'] }}</td>
-                            <td>{{ $aset['kd_aset'] }}</td>
-                            <td>{{ $aset['nama'] }}</td>
-                            <td>{{ $aset['tgl_perolehan'] }}</td>
-                            <td>{{ $aset->cabang->nama_cbng }}</td>
-                            <td>{{ $aset->penempatan->penempatan }}</td>
-                            <td>{{ $aset['spek'] }}</td>
-                            <td>{{ $aset['qty'] }}</td>
-                            <td>{{ $aset->umur->umur_ekonomis }}</td>
-                            <td>{{ $aset['usia_aset'] }} Tahun</td>
-                            <td>{{ $aset->kondisi->kondisi }}</td>
-                            <td>{{ $aset['harga'] }}</td>
+                            <td>{{ $i++ }}</td>
+                            <td>{{ $row->kd_row }}</td>
+                            <td>{{ $row->nama }}</td>
+                            <td>{{ $row->tgl_perolehan }}</td>
+                            <td>{{ $row->cabang->nama_cbng }}</td>
+                            <td>{{ $row->penempatan->penempatan }}</td>
+                            <td>{{ $row->spek }}</td>
+                            <td>{{ $row->qty }}</td>
+                            <td>{{ $row->umur->umur_ekonomis }}</td>
+                            <td>{{ $row->usia_aset }} Tahun</td>
+                            <td>{{ $row->kondisi->kondisi }}</td>
+                            <td>{{ $row->harga }}</td>
                             <td class="text-sm-center">
-                                <a href="" class="btn btn-block btn-warning">
+                                <a href="" class="btn btn-sm btn-warning">
+                                    Edit Data
                                     <i class="fas fa-edit"></i>
                                 </a>
-                                <a href="" class="btn btn-block btn-danger">
+                                <br>
+                                <br>
+                                <a href="" class="btn btn-sm btn-danger">
+                                    Hapus Data
                                     <i class="fas fa-trash-alt"></i>
                                 </a>
                             </td>

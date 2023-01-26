@@ -12,9 +12,9 @@ class asetController extends Controller
 {
     public function index()
     {
-        $data = tb_aset::with(['penempatan', 'umur', 'kondisi'])->get();
+        $data = tb_aset::with(['cabang', 'penempatan', 'umur', 'kondisi'])->get();
         $result = new asetResource($data);
         // dd($result);
-        return view('v_aset.index', ['tb_asets' => $result]);
+        return view('v_aset.index', compact('result'));
     }
 }

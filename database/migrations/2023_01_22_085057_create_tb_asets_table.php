@@ -15,7 +15,7 @@ class CreateTbAsetsTable extends Migration
     {
         Schema::create('tb_asets', function (Blueprint $table) {
             $table->id();
-            $table->string('kd_aset');
+            $table->string('kd_aset')->unique();
             $table->string('nama');
             $table->date('tgl_perolehan');
             $table->foreignId('cabang_id');

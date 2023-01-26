@@ -6,10 +6,10 @@ scratch. This page gets rid of all links and provides the needed markup only.
 <html lang="en">
 
 <head>
+
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>SIM ASET | @yield('title')</title>
-
     <!-- Google Font: Source Sans Pro -->
     <link rel="stylesheet"
         href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,400i,700&display=fallback">
@@ -26,10 +26,12 @@ scratch. This page gets rid of all links and provides the needed markup only.
         href="{{ asset('v_templates_lte/plugins/datatables-buttons/css/buttons.bootstrap4.min.css') }}">
     <!-- Theme style -->
     <link rel="stylesheet" href="{{ asset('v_templates_lte/dist/css/adminlte.min.css') }}">
+    <link rel="stylesheet"
+        href="{{ asset('v_templates_lte/plugins/sweetalert2-theme-bootstrap-4/bootstrap-4.min.css') }}">
 </head>
 
 <body class="hold-transition sidebar-mini">
-
+    @include('sweetalert::alert')
     <!-- Navbar -->
     @include('partials.v_navbar')
     <!-- /.navbar -->
@@ -74,6 +76,8 @@ scratch. This page gets rid of all links and provides the needed markup only.
     <script src="{{ asset('v_templates_lte/plugins/datatables-buttons/js/buttons.html5.min.js') }}"></script>
     <script src="{{ asset('v_templates_lte/plugins/datatables-buttons/js/buttons.print.min.js') }}"></script>
     <script src="{{ asset('v_templates_lte/plugins/datatables-buttons/js/buttons.colVis.min.js') }}"></script>
+    <script src="{{ asset('v_templates_lte/plugins/sweetalert2.all.min.js') }}"></script>
+    <script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>
     <!-- AdminLTE App -->
     <script src="{{ asset('v_templates_lte/dist/js/adminlte.min.js') }}"></script>
 
@@ -96,6 +100,33 @@ scratch. This page gets rid of all links and provides the needed markup only.
             });
         });
     </script>
+
+    <script type="text/javascript">
+        $(function() {
+            $(document).on('click', '#delete', function(e) {
+                e.preventDefault();
+                var link = $(this).attr("href");
+                Swal.fire({
+                    title: 'Apakah Anda Ingin Mengahapus Data ?',
+                    text: "Anda Tidak Dapat Mengembalikan Data Yang Sudah Dihapus!",
+                    icon: 'warning',
+                    showCancelButton: true,
+                    confirmButtonColor: '#3085d6',
+                    cancelButtonColor: '#d33',
+                    confirmButtonText: 'Yes'
+                }).then((result) => {
+                    if (result.isConfirmed) {
+                        Swal.fire(
+                            'Data Berhasil Dihapus!',
+                            'Data Anda Telah Terhapus.',
+                            'success'
+                        )
+                    }
+                });
+            });
+        });
+    </script>
+
 
 </body>
 

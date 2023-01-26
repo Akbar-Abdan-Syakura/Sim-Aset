@@ -15,7 +15,7 @@ class CreateTbCabangsTable extends Migration
     {
         Schema::create('tb_cabangs', function (Blueprint $table) {
             $table->id();
-            $table->string('nama_cbng');
+            $table->string('nama_cbng')->unique();
             $table->text('alamat');
             $table->timestamps();
         });
