@@ -52,7 +52,7 @@
                                 </a>
                                 <br>
                                 <br>
-                                <a href="" class="btn btn-sm btn-danger">
+                                <a href="" class="btn btn-sm btn-danger" id="delete">
                                     Hapus Data
                                     <i class="fas fa-trash-alt"></i>
                                 </a>

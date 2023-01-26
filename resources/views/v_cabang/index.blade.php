@@ -24,7 +24,7 @@
                     @php($i = 1)
                     @foreach ($data as $row)
                         <tr>
-                            <td>{{ $row->id }}</td>
+                            <td>{{ $i++ }}</td>
                             <td>{{ $row->nama_cbng }}</td>
                             <td>{{ $row->alamat }}</td>
                             <td class="text-md-center">
