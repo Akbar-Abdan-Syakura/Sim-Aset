@@ -9,6 +9,7 @@ scratch. This page gets rid of all links and provides the needed markup only.
 
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="icon" href="{{ asset('images/logoperusahaan.JPG') }}" type="image" sizes="16x16">
     <title>SIM ASET | @yield('title')</title>
     <!-- Google Font: Source Sans Pro -->
     <link rel="stylesheet"
