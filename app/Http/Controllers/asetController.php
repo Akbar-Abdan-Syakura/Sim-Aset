@@ -3,16 +3,14 @@
 namespace App\Http\Controllers;
 
 use App\Models\tb_aset;
-use App\Helpers\FormatIdr;
-use Illuminate\Http\Request;
-use Illuminate\Support\Carbon;
 use App\Http\Controllers\Controller;
+use App\Http\Requests\Assets\StoreAssetRequest;
 use App\Http\Resources\asetResource;
 use App\Models\tb_cabang;
 use App\Models\tb_kondisi;
 use App\Models\tb_penempatan;
 use App\Models\tb_umur_ekonomis;
-use Illuminate\Support\Facades\Validator;
+use Exception;
 
 class asetController extends Controller
 {
@@ -20,37 +18,38 @@ class asetController extends Controller
     {
         $data = tb_aset::with(['cabang', 'penempatan', 'umur', 'kondisi'])->get();
         $result = new asetResource($data);
-        // dd($result);
         return view('v_aset.index', compact('result'));
     }
 
     public function addform()
     {
-        return view('v_aset.addform');
+        $data = [
+            "branchs" => tb_cabang::all(),
+            "placements" => tb_penempatan::all(),
+            "economicAges" => tb_umur_ekonomis::all(),
+            "conditions" => tb_kondisi::all()
+        ];
+        return view('v_aset.addform', $data);
     }
 
-    public function store(Request $request)
+    public function store(StoreAssetRequest $request)
     {
-        // $validator = Validator::make($request->all(), [
-        //     'nama_cbng' => 'required|unique:tb_cabangs',
-        //     'alamat' => 'required'
-        // ],);
+        $requestedData = $request->validated();
+        $requestedData["usia_aset"] = 1;
+        try {
+            tb_aset::create($requestedData);
+            $response = [
+                "success" => true,
+            ];
+        } catch (Exception $e) {
+            $response = [
+                "success" => false,
+                "message" => "Terjadi kesalahan silahkan coba lagi"
+            ];
+        }
+        if ($this->isError($response))
+            return $this->getErrorResponse();
 
-        // if ($validator->fails()) {
-        //     return redirect()->back()
-        //         ->with('errorForm', $validator->errors()->getMessages())
-        //         ->withInput();
-        // }
-        // try {
-        //     tb_aset::create([
-        //         'nama_cbng' => $request->nama_cbng,
-        //         'alamat' => $request->alamat,
-        //         'created_at' => Carbon::now()
-        //     ]);
-
-        //     return redirect('cabang')->with('success', 'Data Berhasil Ditambahkan!');
-        // } catch (\Exception $e) {
-        //     return redirect('cabang')->with('error', 'Terjadi Kesalahan Saat Menambah Data.');
-        // }
+        return redirect()->route("aset")->with("success", "Add new data asset successfully");
     }
 }

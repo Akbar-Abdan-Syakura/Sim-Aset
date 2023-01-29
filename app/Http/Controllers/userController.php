@@ -78,6 +78,6 @@ class userController extends Controller
         if ($this->isError($response))
             return $this->getErrorResponse();
 
-        return redirect()->back()->with("success", "Update data user successfully");
+        return redirect()->route("user")->with("success", "Update data user successfully");
     }
 }
