@@ -72,10 +72,10 @@ Route::middleware(["auth"])
 
         //route User----------------------------------------------------------------------
         Route::get('/user', [userController::class, 'index'])->name('user');
-
         Route::get('/user/add_user', [userController::class, 'addform'])->name('add.user');
-
         Route::post('/user/store_user', [userController::class, 'store'])->name('store.user');
+        Route::get('/user/edit_user/{id}', [userController::class, 'edit'])->name('edit.user');
+        Route::post('/user/{id}', [userController::class, 'update'])->name('users.update');
         // -------------------------------------------------------------------------------------
 
         //route Pengajuan----------------------------------------------------------------------

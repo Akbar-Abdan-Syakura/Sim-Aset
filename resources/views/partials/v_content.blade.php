@@ -1,7 +1,9 @@
 <div class="content-wrapper">
     <!-- Content Header (Page header) -->
     <section class="content-header">
+
         <div class="container-fluid">
+            <x-alert></x-alert>
             <div class="row mb-2">
                 <div class="col-sm-8">
                     <h1>

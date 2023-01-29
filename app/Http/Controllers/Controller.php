@@ -7,6 +7,7 @@ use Illuminate\Foundation\Bus\DispatchesJobs;
 use Illuminate\Routing\Controller as BaseController;
 use Illuminate\Foundation\Validation\ValidatesRequests;
 use Illuminate\Foundation\Auth\Access\AuthorizesRequests;
+use Illuminate\Http\RedirectResponse;
 
 class Controller extends BaseController
 {
@@ -35,5 +36,26 @@ class Controller extends BaseController
 
             return $next($request);
         });
+    }
+
+    protected RedirectResponse $response;
+
+    protected function isError(array $response): bool
+    {
+        if (!$response["success"]) {
+            $this->setErrorResponse(redirect()->back()->withErrors($response["message"])->withInput());
+            return true;
+        }
+
+        return false;
+    }
+
+    protected function setErrorResponse(RedirectResponse $response): void
+    {
+        $this->response = $response;
+    }
+    protected function getErrorResponse(): RedirectResponse
+    {
+        return $this->response;
     }
 }
