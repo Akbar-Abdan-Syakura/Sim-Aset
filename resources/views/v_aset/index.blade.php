@@ -46,7 +46,7 @@
                     <td>{{ $row->kondisi->kondisi }}</td>
                     <td class="text-nowrap">{{ intToRupiah($row->harga) }}</td>
                     <td class="text-sm-center">
-                        <a href="/aset/edit_aset" class="btn btn-sm btn-warning">
+                        <a href="/aset/edit_aset/{{ $row->id }}" class="btn btn-sm btn-warning">
                             Edit Data
                             <i class="fas fa-edit"></i>
                         </a>

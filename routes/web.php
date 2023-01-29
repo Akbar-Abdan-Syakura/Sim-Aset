@@ -42,9 +42,9 @@ Route::middleware(["auth"])
 
         //route Aset----------------------------------------------------------------------
         Route::get('/aset', [asetController::class, 'index'])->name('aset');
-
         Route::get('/aset/add_aset', [asetController::class, 'addform'])->name('add.aset');
-
+        Route::get('/aset/edit_aset/{id}', [asetController::class, 'editForm'])->name('edit.aset');
+        Route::patch('/aset/{id}', [asetController::class, 'update'])->name('update.aset');
         Route::post('/aset/store_aset', [asetController::class, 'store'])->name('store.aset');
 
         // -------------------------------------------------------------------------------------

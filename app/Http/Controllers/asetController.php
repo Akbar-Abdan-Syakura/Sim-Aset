@@ -2,9 +2,11 @@
 
 namespace App\Http\Controllers;
 
+use App\Exceptions\EmptyDataException;
 use App\Models\tb_aset;
 use App\Http\Controllers\Controller;
 use App\Http\Requests\Assets\StoreAssetRequest;
+use App\Http\Requests\Assets\UpdateAssetRequest;
 use App\Http\Resources\asetResource;
 use App\Models\tb_cabang;
 use App\Models\tb_kondisi;
@@ -33,7 +35,44 @@ class asetController extends Controller
         ];
         return view('v_aset.addform', $data);
     }
+    public function editForm(int $id)
+    {
+        $data = [
+            "branchs" => tb_cabang::all(),
+            "placements" => tb_penempatan::all(),
+            "economicAges" => tb_umur_ekonomis::all(),
+            "conditions" => tb_kondisi::all(),
+            "asset" => tb_aset::find($id)
+        ];
+        return view('v_aset.editform', $data);
+    }
 
+    public function update(UpdateAssetRequest $request, int $id)
+    {
+        $requestedData = $request->validated();
+        try {
+            $asset = tb_aset::find($id);
+
+
+            if (!$asset)
+                throw new EmptyDataException();
+
+            AssetAgeService::setAssetAge($requestedData);
+            tb_aset::where("id", $id)->update($requestedData);
+            $response = [
+                "success" => true,
+            ];
+        } catch (Exception $e) {
+            $response = [
+                "success" => false,
+                "message" => "Terjadi kesalahan silahkan coba lagi"
+            ];
+        }
+        if ($this->isError($response))
+            return $this->getErrorResponse();
+
+        return redirect()->route("aset")->with("success", "Berhasil mengubah data asset");
+    }
     public function store(StoreAssetRequest $request): RedirectResponse
     {
         $requestedData = $request->validated();
@@ -53,6 +92,6 @@ class asetController extends Controller
         if ($this->isError($response))
             return $this->getErrorResponse();
 
-        return redirect()->route("aset")->with("success", "Add new data asset successfully");
+        return redirect()->route("aset")->with("success", "Berhasil menambahkan data asset");
     }
 }
