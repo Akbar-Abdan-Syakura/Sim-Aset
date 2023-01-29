@@ -10,7 +10,9 @@ use App\Models\tb_cabang;
 use App\Models\tb_kondisi;
 use App\Models\tb_penempatan;
 use App\Models\tb_umur_ekonomis;
+use App\Services\AssetAgeService;
 use Exception;
+use Illuminate\Http\RedirectResponse;
 
 class asetController extends Controller
 {
@@ -32,10 +34,11 @@ class asetController extends Controller
         return view('v_aset.addform', $data);
     }
 
-    public function store(StoreAssetRequest $request)
+    public function store(StoreAssetRequest $request): RedirectResponse
     {
         $requestedData = $request->validated();
-        $requestedData["usia_aset"] = 1;
+        AssetAgeService::setAssetAge($requestedData);
+
         try {
             tb_aset::create($requestedData);
             $response = [
