@@ -5,6 +5,7 @@
 
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\asetController;
+use App\Http\Controllers\Auth\AuthController;
 use App\Http\Controllers\userController;
 use App\Http\Controllers\cabangController;
 use App\Http\Controllers\dashboardController;
@@ -23,54 +24,67 @@ use App\Http\Controllers\detail_userController;
 | contains the "web" middleware group. Now create something great!
 |
 */
-//route Dashboard----------------------------------------------------------------------
-Route::get('/', [dashboardController::class, 'index']);
-// -------------------------------------------------------------------------------------
 
-//route Aset----------------------------------------------------------------------
-Route::get('/aset', [asetController::class, 'index'])->name('aset');
+Route::controller(AuthController::class)
+    ->name('auth.')
+    ->group(function () {
+        Route::get("/login", 'login')->name('login');
+        Route::post("/authenticate", 'authenticate')->name('authenticate');
+        Route::post("/logout", 'logout')->name('logout');
+    });
 
-Route::get('/aset/add_aset', [asetController::class, 'addform'])->name('add.aset');
 
-Route::post('/aset/store_aset', [asetController::class, 'store'])->name('store.aset');
+Route::middleware(["auth"])
+    ->group(function () {
+        //route Dashboard----------------------------------------------------------------------
+        Route::get('/', [dashboardController::class, 'index']);
+        // -------------------------------------------------------------------------------------
 
-// -------------------------------------------------------------------------------------
+        //route Aset----------------------------------------------------------------------
+        Route::get('/aset', [asetController::class, 'index'])->name('aset');
 
-//route Monitoring----------------------------------------------------------------------
-Route::get('/monitoring', [monitoringController::class, 'index']);
-// -------------------------------------------------------------------------------------
+        Route::get('/aset/add_aset', [asetController::class, 'addform'])->name('add.aset');
 
-//route Rekomendasi----------------------------------------------------------------------
-Route::get('/rekomendasi', [rekomendasiController::class, 'index']);
-// -------------------------------------------------------------------------------------
+        Route::post('/aset/store_aset', [asetController::class, 'store'])->name('store.aset');
 
-// route Cabang----------------------------------------------------------------------
+        // -------------------------------------------------------------------------------------
 
-Route::get('/cabang', [cabangController::class, 'index'])->name('cabang');
+        //route Monitoring----------------------------------------------------------------------
+        Route::get('/monitoring', [monitoringController::class, 'index']);
+        // -------------------------------------------------------------------------------------
 
-Route::get('/cabang/add_cabang', [cabangController::class, 'addform'])->name('add.cabang');
-Route::get('/cabang/edit_cabang/{id}', [cabangController::class, 'editform'])->name('edit.cabang');
+        //route Rekomendasi----------------------------------------------------------------------
+        Route::get('/rekomendasi', [rekomendasiController::class, 'index']);
+        // -------------------------------------------------------------------------------------
 
-Route::post('/cabang/store_cabang', [cabangController::class, 'store'])->name('store.cabang');
-Route::patch('/cabang/update_cabang/{id}', [cabangController::class, 'update'])->name('update.cabang');
-Route::delete('/cabang/{id}', [cabangController::class, 'destroy'])->name('delete.cabang');
+        // route Cabang----------------------------------------------------------------------
 
-// -------------------------------------------------------------------------------------
+        Route::get('/cabang', [cabangController::class, 'index'])->name('cabang');
 
-//route User----------------------------------------------------------------------
-Route::get('/user', [userController::class, 'index'])->name('user');
+        Route::get('/cabang/add_cabang', [cabangController::class, 'addform'])->name('add.cabang');
+        Route::get('/cabang/edit_cabang/{id}', [cabangController::class, 'editform'])->name('edit.cabang');
 
-Route::get('/user/add_user', [userController::class, 'addform'])->name('add.user');
+        Route::post('/cabang/store_cabang', [cabangController::class, 'store'])->name('store.cabang');
+        Route::patch('/cabang/update_cabang/{id}', [cabangController::class, 'update'])->name('update.cabang');
+        Route::delete('/cabang/{id}', [cabangController::class, 'destroy'])->name('delete.cabang');
 
-Route::post('/user/store_user', [userController::class, 'store'])->name('store.user');
-// -------------------------------------------------------------------------------------
+        // -------------------------------------------------------------------------------------
 
-//route Pengajuan----------------------------------------------------------------------
-Route::get('/pengajuan', [pengajuanController::class, 'index'])->name('pengajuan');
-Route::get('/status_pengajuan_setuju', [pengajuanController::class, 'setuju']);
-Route::get('/status_pengajuan_tdksetuju', [pengajuanController::class, 'tdksetuju']);
-// -------------------------------------------------------------------------------------
+        //route User----------------------------------------------------------------------
+        Route::get('/user', [userController::class, 'index'])->name('user');
 
-//route Detail User----------------------------------------------------------------------
-Route::get('/detail_user', [detail_userController::class, 'index']);
-// -------------------------------------------------------------------------------------
+        Route::get('/user/add_user', [userController::class, 'addform'])->name('add.user');
+
+        Route::post('/user/store_user', [userController::class, 'store'])->name('store.user');
+        // -------------------------------------------------------------------------------------
+
+        //route Pengajuan----------------------------------------------------------------------
+        Route::get('/pengajuan', [pengajuanController::class, 'index'])->name('pengajuan');
+        Route::get('/status_pengajuan_setuju', [pengajuanController::class, 'setuju']);
+        Route::get('/status_pengajuan_tdksetuju', [pengajuanController::class, 'tdksetuju']);
+        // -------------------------------------------------------------------------------------
+
+        //route Detail User----------------------------------------------------------------------
+        Route::get('/detail_user', [detail_userController::class, 'index']);
+        // -------------------------------------------------------------------------------------
+    });
