@@ -12,23 +12,17 @@ scratch. This page gets rid of all links and provides the needed markup only.
     <link rel="icon" href="{{ asset('images/logoperusahaan.JPG') }}" type="image" sizes="16x16">
     <title>SIM ASET | @yield('title')</title>
     <!-- Google Font: Source Sans Pro -->
-    <link rel="stylesheet"
-        href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,400i,700&display=fallback">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,400i,700&display=fallback">
     <!-- Font Awesome Icons -->
-    <link href="http://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.3.0/css/font-awesome.css" rel="stylesheet"
-        type='text/css'>
+    <link href="http://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.3.0/css/font-awesome.css" rel="stylesheet" type='text/css'>
     <link rel="stylesheet" href="{{ asset('v_templates_lte/plugins/fontawesome-free/css/all.min.css') }}">
     <!-- Datatables Style -->
-    <link rel="stylesheet"
-        href="{{ asset('v_templates_lte/plugins/datatables-bs4/css/dataTables.bootstrap4.min.css') }}">
-    <link rel="stylesheet"
-        href="{{ asset('v_templates_lte/plugins/datatables-responsive/css/responsive.bootstrap4.min.css') }}">
-    <link rel="stylesheet"
-        href="{{ asset('v_templates_lte/plugins/datatables-buttons/css/buttons.bootstrap4.min.css') }}">
+    <link rel="stylesheet" href="{{ asset('v_templates_lte/plugins/datatables-bs4/css/dataTables.bootstrap4.min.css') }}">
+    <link rel="stylesheet" href="{{ asset('v_templates_lte/plugins/datatables-responsive/css/responsive.bootstrap4.min.css') }}">
+    <link rel="stylesheet" href="{{ asset('v_templates_lte/plugins/datatables-buttons/css/buttons.bootstrap4.min.css') }}">
     <!-- Theme style -->
     <link rel="stylesheet" href="{{ asset('v_templates_lte/dist/css/adminlte.min.css') }}">
-    <link rel="stylesheet"
-        href="{{ asset('v_templates_lte/plugins/sweetalert2-theme-bootstrap-4/bootstrap-4.min.css') }}">
+    <link rel="stylesheet" href="{{ asset('v_templates_lte/plugins/sweetalert2-theme-bootstrap-4/bootstrap-4.min.css') }}">
 </head>
 
 <body class="hold-transition sidebar-mini">
@@ -77,12 +71,13 @@ scratch. This page gets rid of all links and provides the needed markup only.
     <script src="{{ asset('v_templates_lte/plugins/datatables-buttons/js/buttons.html5.min.js') }}"></script>
     <script src="{{ asset('v_templates_lte/plugins/datatables-buttons/js/buttons.print.min.js') }}"></script>
     <script src="{{ asset('v_templates_lte/plugins/datatables-buttons/js/buttons.colVis.min.js') }}"></script>
-    <script src="{{ asset('v_templates_lte/plugins/sweetalert2.all.min.js') }}"></script>
+    <script src="{{ asset('v_templates_lte/plugins/sweetalert2/sweetalert2.all.min.js') }}"></script>
     <script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>
     <script src="https://cdnjs.com/libraries/bootstrap-modal"></script>
     <!-- AdminLTE App -->
     <script src="{{ asset('v_templates_lte/dist/js/adminlte.min.js') }}"></script>
 
+    @yield("custom-scripts")
     <script>
         $(function() {
             $("#example1").DataTable({

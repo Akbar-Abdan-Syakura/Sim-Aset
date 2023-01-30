@@ -10,10 +10,11 @@ class tb_pengajuan extends Model
     use HasFactory;
 
     protected $fillable = [
-        'kd_pengajuan' => 'required|unique:tb_pengajuans',
-        'nama_user' => 'required',
-        'nama_aset' => 'required',
-        'qty' => 'required',
+        'kd_pengajuan',
+        'user_id',
+        'nama_aset',
+        'qty',
+        "status"
     ];
 
     public function user()

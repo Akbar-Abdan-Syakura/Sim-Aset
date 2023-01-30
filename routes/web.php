@@ -80,6 +80,9 @@ Route::middleware(["auth"])
 
         //route Pengajuan----------------------------------------------------------------------
         Route::get('/pengajuan', [pengajuanController::class, 'index'])->name('pengajuan');
+        Route::get('/pengajuan/add_pengajuan', [pengajuanController::class, 'create'])->name('create.pengajuan');
+        Route::post('/pengajuan/store_pengajuan', [pengajuanController::class, 'store'])->name('store.pengajuan');
+        Route::patch("/pengajuan/ganti_status/{id}", [pengajuanController::class, 'update'])->name("update.pengajuan");
         Route::get('/status_pengajuan_setuju', [pengajuanController::class, 'setuju']);
         Route::get('/status_pengajuan_tdksetuju', [pengajuanController::class, 'tdksetuju']);
         // -------------------------------------------------------------------------------------
