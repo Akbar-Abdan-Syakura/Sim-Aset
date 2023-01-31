@@ -6,7 +6,7 @@ use Carbon\Carbon;
 
 class AssetAgeService
 {
-    public static function setAssetAge(array &$requestedData): void
+    public static function setAssetAge(&$requestedData): void
     {
         $purchasingDate = $requestedData["tgl_perolehan"];
         $purchasingDate = Carbon::parse($purchasingDate);
