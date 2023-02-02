@@ -33,5 +33,7 @@ class AsetSeeder extends Seeder
         ];
 
         tb_aset::insert($aset);
+
+        tb_aset::factory()->count(100)->create();
     }
 }

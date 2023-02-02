@@ -4,3 +4,8 @@ function intToRupiah(int $price)
 {
     return "Rp " . number_format($price, 2, ',', '.');
 }
+
+function rupiahToInt(string $rupiah)
+{
+    # code...
+}
