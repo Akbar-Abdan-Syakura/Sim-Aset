@@ -28,7 +28,6 @@ class monitoringController extends Controller
                 return true;
             }
         });
-        // dd($dataAsset);
         $data = [
             "assets" => $dataAsset
         ];
