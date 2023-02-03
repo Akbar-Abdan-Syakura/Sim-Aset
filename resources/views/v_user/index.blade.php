@@ -19,6 +19,7 @@
                     <th>No.</th>
                     <th>Nama User</th>
                     <th>Email</th>
+                    <th>Role</th>
                     <th class="text-md-center">Action</th>
                 </tr>
             </thead>
@@ -29,6 +30,7 @@
                     <td>{{ $i++ }}</td>
                     <td>{{ $row->name }}</td>
                     <td>{{ $row->email }}</td>
+                    <td>{{ $row->role->name ?? "-" }}</td>
                     <td class="text-md-center">
                         <a href="/user/edit_user/{{ $row->id }}" class="btn btn-warning btn-sm">
                             <i class="fas fa-edit"></i>

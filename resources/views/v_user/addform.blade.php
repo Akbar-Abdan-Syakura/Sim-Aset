@@ -18,6 +18,15 @@
                 <input type="email" class="form-control" id="inputEmailUser" rows="3" name="email" placeholder="Enter Email"></input>
             </div>
             <div class="form-group">
+                <label for="role_id">Example select</label>
+                <select class="form-control" id="role_id" name="role_id">
+                    <option value="1">Admin</option>
+                    <option value="2">Manager</option>
+                    <option value="3">General Manager</option>
+                    <option value="4">Perwakilan Kantor Cabang</option>
+                </select>
+            </div>
+            <div class="form-group">
                 <label for="inputPasswordUser">Password</label>
                 <input type="password" class="form-control" id="inputPasswordUser" rows="3" name="password" placeholder="Enter Password">
             </div>

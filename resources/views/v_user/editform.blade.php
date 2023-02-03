@@ -17,6 +17,23 @@
                 <label for="inputEmailUser">Email</label>
                 <input type="email" class="form-control" id="inputEmailUser" rows="3" name="email" placeholder="Enter Email" value="{{ $users->email }}"></input>
             </div>
+            <div class="form-group">
+                <label for="role_id">Example select</label>
+                <select class="form-control" id="role_id" name="role_id">
+                    <option value="1" @if($users->role_id==1)
+                        selected
+                        @endif>Admin</option>
+                    <option value="2" @if($users->role_id==2)
+                        selected
+                        @endif>Manager</option>
+                    <option value="3" @if($users->role_id==3)
+                        selected
+                        @endif>General Manager</option>
+                    <option value="4" @if($users->role_id==4)
+                        selected
+                        @endif>Perwakilan Kantor Cabang</option>
+                </select>
+            </div>
         </div>
         <div class="card-footer">
             <button type="submit" class="btn btn-success swalDefaultSuccess">Save Changes</button>
