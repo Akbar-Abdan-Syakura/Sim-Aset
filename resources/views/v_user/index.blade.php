@@ -4,11 +4,13 @@
 @section('content')
 <div class="card">
     <div class="card-header">
+        @can("isAdmin")
         <a href="/user/add_user" type="button" class="btn btn-success btn-md float-left">
             <i class="fas fa-plus nav-icon"></i>
             &nbsp;&nbsp;
             Add Data
         </a>
+        @endcan
     </div>
     <div class="card-body">
         <table id="example1" class="table table-bordered table-striped">
@@ -32,11 +34,6 @@
                             <i class="fas fa-edit"></i>
                             Edit Data
                         </a>
-                        {{-- &nbsp;&nbsp; --}}
-                        {{-- <a class="btn btn-danger btn-sm" id="delete">
-                            <i class="fas fa-trash-alt"></i>
-                            Hapus Data
-                        </a> --}}
                     </td>
                 </tr>
                 @endforeach

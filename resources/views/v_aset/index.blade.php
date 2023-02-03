@@ -4,11 +4,13 @@
 @section('content')
 <div class="card">
     <div class="card-header">
+        @canany(['isManager', 'isAdmin'])
         <a href="/aset/add_aset" type="button" class="btn btn-success btn-md float-left">
             <i class="fas fa-plus nav-icon"></i>
             &nbsp;&nbsp;
             Add Data
         </a>
+        @endcanany
     </div>
     <div class="card-body">
         <table id="example1" class="table table-bordered table-striped">
@@ -26,7 +28,9 @@
                     <th>Usia Aset</th>
                     <th>Kondisi</th>
                     <th>Harga</th>
+                    @canany(['isManager', 'isAdmin'])
                     <th>Action</th>
+                    @endcanany
                 </tr>
             </thead>
             <tbody>
@@ -45,6 +49,7 @@
                     <td>{{ $row->usia_aset }} Tahun</td>
                     <td>{{ $row->kondisi->kondisi ??"-" }}</td>
                     <td class="text-nowrap">{{ intToRupiah($row->harga) }}</td>
+                    @canany(['isManager', 'isAdmin'])
                     <td class="text-sm-center">
                         <a href="/aset/edit_aset/{{ $row->id }}" class="btn btn-sm btn-warning">
                             Edit Data
@@ -57,6 +62,7 @@
                             <i class="fas fa-trash-alt"></i>
                         </a>
                     </td>
+                    @endcanany
                 </tr>
                 @endforeach
         </table>

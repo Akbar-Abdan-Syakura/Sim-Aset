@@ -39,9 +39,11 @@
                     <th>Harga</th>
                     <th>Tanggal Pengajuan</th>
                     <th>Status</th>
+                    @can("isGm")
                     @if (request()->input("type") !== "tolak" && request()->input("type") !== "setuju")
                     <th>Action</th>
                     @endif
+                    @endcan
                 </tr>
             </thead>
             <tbody>
@@ -59,6 +61,8 @@
                         <span class="badge
                         @if ($row->status=='tolak') badge-danger @elseif($row->status=='setuju') badge-primary @elseif ($row->status=='pending') badge-secondary @endif ">{{ ucfirst($row->status) }}</span>
                     </td>
+
+                    @can("isGm")
                     @if (request()->input("type") !== "tolak" && request()->input("type") !== "setuju")
                     <td class="text-md-center">
                         <form action="{{ route('update.pengajuan', $row->id) }}" method="POST">
@@ -75,6 +79,7 @@
                         </form>
                     </td>
                     @endif
+                    @endcan
                 </tr>
                 @endforeach
         </table>

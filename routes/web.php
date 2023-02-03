@@ -34,7 +34,7 @@ Route::controller(AuthController::class)
     });
 
 
-Route::middleware(["auth", "roles:admin,manager, gm, branch"])
+Route::middleware(["auth", "roles:admin,manager,gm,branch"])
     ->group(function () {
 
         //route Dashboard----------------------------------------------------------------------
@@ -42,7 +42,7 @@ Route::middleware(["auth", "roles:admin,manager, gm, branch"])
         // -------------------------------------------------------------------------------------
 
         Route::get('/aset', [asetController::class, 'index'])->name('aset');
-        Route::middleware("prevent_roles:gm, branch")->group(
+        Route::middleware("prevent_roles:gm,branch")->group(
             function () {
                 //route Aset----------------------------------------------------------------------
                 Route::get('/aset/add_aset', [asetController::class, 'addform'])->name('add.aset');
@@ -64,7 +64,7 @@ Route::middleware(["auth", "roles:admin,manager, gm, branch"])
         // route Cabang----------------------------------------------------------------------
 
         Route::get('/cabang', [cabangController::class, 'index'])->name('cabang')->middleware("prevent_roles:branch");;
-        Route::middleware("prevent_roles:manager, gm, branch")->group(
+        Route::middleware("prevent_roles:manager,gm,branch")->group(
             function () {
                 Route::get('/cabang/add_cabang', [cabangController::class, 'addform'])->name('add.cabang');
                 Route::get('/cabang/edit_cabang/{id}', [cabangController::class, 'editform'])->name('edit.cabang');
@@ -90,7 +90,7 @@ Route::middleware(["auth", "roles:admin,manager, gm, branch"])
         Route::get('/pengajuan', [pengajuanController::class, 'index'])->name('pengajuan');
         Route::get('/pengajuan/add_pengajuan', [pengajuanController::class, 'create'])->name('create.pengajuan');
         Route::post('/pengajuan/store_pengajuan', [pengajuanController::class, 'store'])->name('store.pengajuan');
-        Route::patch("/pengajuan/ganti_status/{id}", [pengajuanController::class, 'update'])->name("update.pengajuan")->middleware("prevent_roles:admin, branch, manager");
+        Route::patch("/pengajuan/ganti_status/{id}", [pengajuanController::class, 'update'])->name("update.pengajuan")->middleware("prevent_roles:admin,branch,manager");
         // -------------------------------------------------------------------------------------
 
         //route Detail User----------------------------------------------------------------------
