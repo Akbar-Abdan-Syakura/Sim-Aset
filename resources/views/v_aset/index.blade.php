@@ -37,13 +37,13 @@
                     <td>{{ $row->kd_aset }}</td>
                     <td>{{ $row->nama }}</td>
                     <td>{{ $row->tgl_perolehan }}</td>
-                    <td>{{ $row->cabang->nama_cbng }}</td>
-                    <td>{{ $row->penempatan->penempatan }}</td>
+                    <td>{{ $row->cabang->nama_cbng ??"-" }}</td>
+                    <td>{{ $row->penempatan->penempatan??"-" }}</td>
                     <td>{{ $row->spek }}</td>
                     <td>{{ $row->qty }}</td>
-                    <td>{{ $row->umur->umur_ekonomis }}</td>
+                    <td>{{ $row->umur->umur_ekonomis ??"-" }}</td>
                     <td>{{ $row->usia_aset }} Tahun</td>
-                    <td>{{ $row->kondisi->kondisi }}</td>
+                    <td>{{ $row->kondisi->kondisi ??"-" }}</td>
                     <td class="text-nowrap">{{ intToRupiah($row->harga) }}</td>
                     <td class="text-sm-center">
                         <a href="/aset/edit_aset/{{ $row->id }}" class="btn btn-sm btn-warning">

@@ -25,7 +25,6 @@ class StoreAssetRequest extends FormRequest
     {
         return [
             "nama" => "",
-            "kd_aset" => "unique:tb_asets,kd_aset",
             "tgl_perolehan" => "",
             "cabang_id" => "required|numeric",
             "penempatan_id" => "required|numeric",

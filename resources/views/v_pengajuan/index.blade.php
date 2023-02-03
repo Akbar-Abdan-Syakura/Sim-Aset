@@ -36,6 +36,7 @@
                     <th>User Yang Mengajukan</th>
                     <th>Nama Aset</th>
                     <th>Jumlah Aset Yang Diajukan</th>
+                    <th>Harga</th>
                     <th>Tanggal Pengajuan</th>
                     <th>Status</th>
                     @if (request()->input("type") !== "tolak" && request()->input("type") !== "setuju")
@@ -52,6 +53,7 @@
                     <td>{{ $row->user->name }}</td>
                     <td>{{ $row->nama_aset }}</td>
                     <td>{{ $row->qty }}</td>
+                    <td>{{ intToRupiah($row->harga) }}</td>
                     <td>{{ $row->created_at }}</td>
                     <td>
                         <span class="badge

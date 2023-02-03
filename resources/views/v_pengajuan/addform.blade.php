@@ -21,6 +21,10 @@
                 <label for="qty">Jumlah</label>
                 <input type="number" class="form-control" id="qty" name="qty" placeholder="Enter Asset Name" value="{{ old('qty') }}">
             </div>
+            <div class="form-group">
+                <label for="harga">Harga</label>
+                <input type="number" class="form-control" id="harga" name="harga" placeholder="Enter Asset Price" value="{{ old('harga') }}">
+            </div>
         </div>
         <div class="card-footer">
             <button type="submit" class="btn btn-success swalDefaultSuccess">Submit</button>

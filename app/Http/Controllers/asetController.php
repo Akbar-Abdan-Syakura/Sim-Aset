@@ -13,6 +13,7 @@ use App\Models\tb_kondisi;
 use App\Models\tb_penempatan;
 use App\Models\tb_umur_ekonomis;
 use App\Services\AssetAgeService;
+use App\Services\GenerateKodeAssetService;
 use Exception;
 use Illuminate\Http\RedirectResponse;
 
@@ -77,7 +78,7 @@ class asetController extends Controller
     {
         $requestedData = $request->validated();
         AssetAgeService::setAssetAge($requestedData);
-
+        $requestedData["kd_aset"] = GenerateKodeAssetService::getGeneratedKode();
         try {
             tb_aset::create($requestedData);
             $response = [
@@ -86,7 +87,8 @@ class asetController extends Controller
         } catch (Exception $e) {
             $response = [
                 "success" => false,
-                "message" => "Terjadi kesalahan silahkan coba lagi"
+                // "message" => "Terjadi kesalahan silahkan coba lagi"
+                "message" => $e->getMessage()
             ];
         }
         if ($this->isError($response))

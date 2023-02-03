@@ -18,7 +18,6 @@ class tb_aset extends Model
         'spek',
         'qty',
         'umur_ekonomis_id',
-        'usia_aset',
         'kondisi_id',
         'harga'
     ];

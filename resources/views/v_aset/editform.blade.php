@@ -11,10 +11,6 @@
         @method("PATCH")
         <div class="card-body">
             <div class="form-group">
-                <label for="inputKodeAset">Kode Aset</label>
-                <input type="text" class="form-control" id="inputKodeAset" name="kd_aset" placeholder="Enter Asset Label" value="{{ $asset->kd_aset }}">
-            </div>
-            <div class="form-group">
                 <label for="inputNamaAset">Nama Aset Baru</label>
                 <input type="text" class="form-control" id="inputNamaAset" name="nama" placeholder="Enter Asset Name" value="{{ $asset->nama }}">
             </div>

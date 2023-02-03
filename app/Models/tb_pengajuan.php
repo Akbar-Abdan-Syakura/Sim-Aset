@@ -14,6 +14,7 @@ class tb_pengajuan extends Model
         'user_id',
         'nama_aset',
         'qty',
+        'harga',
         "status"
     ];
 
