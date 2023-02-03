@@ -8,6 +8,7 @@ use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use App\Http\Requests\Pengajuan\StorePengajuanRequest;
 use App\Http\Requests\Pengajuan\UpdatePengajuanRequest;
+use App\Services\GenerateKodePengajuanService;
 use Exception;
 use Illuminate\Http\RedirectResponse;
 use Illuminate\Support\Facades\Auth;
@@ -32,6 +33,8 @@ class pengajuanController extends Controller
         $requestedData = $request->validated();
         $requestedData["user_id"] = Auth::id();
         $requestedData["status"] = "pending";
+        $requestedData["kd_pengajuan"] = GenerateKodePengajuanService::getGeneratedKode();
+
         try {
             tb_pengajuan::create($requestedData);
             $response = [

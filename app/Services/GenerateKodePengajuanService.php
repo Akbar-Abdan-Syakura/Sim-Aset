@@ -3,19 +3,19 @@
 namespace App\Services;
 
 use App\Models\tb_aset;
+use App\Models\tb_pengajuan;
 
-class GenerateKodeAssetService
+class GenerateKodePengajuanService
 {
     public static function getGeneratedKode(): string
     {
-
-        $latestAsset = tb_aset::orderBy("id", "DESC")->first();
+        $latestPengajuan = tb_pengajuan::orderBy("id", "DESC")->first();
         $number = "00001";
-        if ($latestAsset) {
-            $number = explode("-", $latestAsset->kd_aset);
+        if ($latestPengajuan) {
+            $number = explode("-", $latestPengajuan->kd_pengajuan);
             $number = $number[1];
             $number = str_pad(intval($number) + 1, strlen($number), "0", STR_PAD_LEFT);
         }
-        return "AST-" . $number;
+        return "PENGAJUAN-$number";
     }
 }

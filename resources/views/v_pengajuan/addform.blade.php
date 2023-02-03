@@ -10,10 +10,6 @@
         @csrf
         <div class="card-body">
             <div class="form-group">
-                <label for="kd_pengajuan">Kode Pengajuan</label>
-                <input type="text" class="form-control" id="kd_pengajuan" name="kd_pengajuan" placeholder="Masukkan kode pengajuan" value="{{ old('kd_pengajuan') }}">
-            </div>
-            <div class="form-group">
                 <label for="nama_aset">Nama Aset</label>
                 <input type="text" class="form-control" id="nama_aset" name="nama_aset" placeholder="Enter Asset Name" value="{{ old('nama_aset') }}">
             </div>

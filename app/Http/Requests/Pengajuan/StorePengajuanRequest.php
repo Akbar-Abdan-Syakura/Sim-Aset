@@ -24,7 +24,6 @@ class StorePengajuanRequest extends FormRequest
     public function rules()
     {
         return [
-            "kd_pengajuan" => "required|unique:tb_pengajuans,kd_pengajuan",
             "nama_aset" => "",
             "qty" => "numeric|required",
             "harga" => ""
