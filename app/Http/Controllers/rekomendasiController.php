@@ -12,6 +12,8 @@ class rekomendasiController extends Controller
     public function index()
     {
         $dataAsset = tb_aset::with(['cabang', 'penempatan', 'umur', 'kondisi'])->whereIn("kondisi_id", [3, 4])->where("harga",">", 100000)->get();
+        if($dataAsset->count()>0){
+
         $dataAsset = collect($dataAsset)->map(function ($item)
         {
             AssetAgeService::setAssetAge($item);
@@ -86,6 +88,12 @@ class rekomendasiController extends Controller
         $data = [
             "assets" => $dataAssetFinal
         ];
+
+        }else{
+            $data = [
+                "assets" => []
+            ];
+        }
         return view('v_rekomendasi.index', $data);
     }
 }

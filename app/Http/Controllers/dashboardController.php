@@ -6,7 +6,6 @@ use App\Models\tb_aset;
 use App\Models\tb_pengajuan;
 use App\Services\AssetAgeService;
 use App\Statics\BobotStatic;
-use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 
 class dashboardController extends Controller
@@ -14,6 +13,8 @@ class dashboardController extends Controller
     public function index()
     {
         $dataAsset = tb_aset::with(['cabang', 'penempatan', 'umur', 'kondisi'])->whereIn("kondisi_id", [3, 4])->where("harga",">", 100000)->get();
+        if($dataAsset->count()>0){
+
         $dataAsset = collect($dataAsset)->map(function ($item)
         {
             AssetAgeService::setAssetAge($item);
@@ -85,6 +86,10 @@ class dashboardController extends Controller
             return $item;
         });
 
+        }else{
+            $dataAssetFinal = collect([]);
+        }
+
         $dataMonitoring = tb_aset::whereIn("kondisi_id", [3,4])->get();
         $dataMonitoring = collect($dataMonitoring);
         $dataMonitoring = $dataMonitoring->filter(function ($item) {
@@ -104,7 +109,7 @@ class dashboardController extends Controller
         });
         $data = [
             "totalAsset" => tb_aset::all()->count(),
-            "totalRekomendasi" => $dataAssetFinal->count(),
+            "totalRekomendasi" => $dataAssetFinal->count()??0,
             "totalPengajuan" => tb_pengajuan::all()->count(),
             "totalMonitoring" => $dataMonitoring->count(),
         ];
