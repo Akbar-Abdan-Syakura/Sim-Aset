@@ -35,7 +35,7 @@ class RoleSeeder extends Seeder
         // "admin", "manager", "gm", "branch"
 
         foreach ($roles as $key => $value) {
-            Role::create(["name" => $value]);
+            Role::create($value);
         }
     }
 }

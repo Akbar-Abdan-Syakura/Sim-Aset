@@ -30,7 +30,7 @@
                     <td>{{ $i++ }}</td>
                     <td>{{ $row->name }}</td>
                     <td>{{ $row->email }}</td>
-                    <td>{{ $row->role->name ?? "-" }}</td>
+                    <td>{{ $row->role->fullname ?? "-" }}</td>
                     <td class="text-md-center">
                         <a href="/user/edit_user/{{ $row->id }}" class="btn btn-warning btn-sm">
                             <i class="fas fa-edit"></i>
