@@ -34,60 +34,66 @@ Route::controller(AuthController::class)
     });
 
 
-Route::middleware(["auth"])
+Route::middleware(["auth", "roles:admin,manager, gm, branch"])
     ->group(function () {
+
         //route Dashboard----------------------------------------------------------------------
-        Route::get('/', [dashboardController::class, 'index']);
+        Route::get('/', [dashboardController::class, 'index'])->middleware("prevent_roles:branch");
         // -------------------------------------------------------------------------------------
 
-        //route Aset----------------------------------------------------------------------
         Route::get('/aset', [asetController::class, 'index'])->name('aset');
-        Route::get('/aset/add_aset', [asetController::class, 'addform'])->name('add.aset');
-        Route::get('/aset/edit_aset/{id}', [asetController::class, 'editForm'])->name('edit.aset');
-        Route::patch('/aset/{id}', [asetController::class, 'update'])->name('update.aset');
-        Route::post('/aset/store_aset', [asetController::class, 'store'])->name('store.aset');
-
+        Route::middleware("prevent_roles:gm, branch")->group(
+            function () {
+                //route Aset----------------------------------------------------------------------
+                Route::get('/aset/add_aset', [asetController::class, 'addform'])->name('add.aset');
+                Route::get('/aset/edit_aset/{id}', [asetController::class, 'editForm'])->name('edit.aset');
+                Route::patch('/aset/{id}', [asetController::class, 'update'])->name('update.aset');
+                Route::post('/aset/store_aset', [asetController::class, 'store'])->name('store.aset');
+            }
+        );
         // -------------------------------------------------------------------------------------
 
         //route Monitoring----------------------------------------------------------------------
-        Route::get('/monitoring', [monitoringController::class, 'index']);
+        Route::get('/monitoring', [monitoringController::class, 'index'])->middleware("prevent_roles:branch");;
         // -------------------------------------------------------------------------------------
 
         //route Rekomendasi----------------------------------------------------------------------
-        Route::get('/rekomendasi', [rekomendasiController::class, 'index']);
+        Route::get('/rekomendasi', [rekomendasiController::class, 'index'])->middleware("prevent_roles:branch");;
         // -------------------------------------------------------------------------------------
 
         // route Cabang----------------------------------------------------------------------
 
-        Route::get('/cabang', [cabangController::class, 'index'])->name('cabang');
-
-        Route::get('/cabang/add_cabang', [cabangController::class, 'addform'])->name('add.cabang');
-        Route::get('/cabang/edit_cabang/{id}', [cabangController::class, 'editform'])->name('edit.cabang');
-
-        Route::post('/cabang/store_cabang', [cabangController::class, 'store'])->name('store.cabang');
-        Route::patch('/cabang/update_cabang/{id}', [cabangController::class, 'update'])->name('update.cabang');
-        Route::delete('/cabang/{id}', [cabangController::class, 'destroy'])->name('delete.cabang');
+        Route::get('/cabang', [cabangController::class, 'index'])->name('cabang')->middleware("prevent_roles:branch");;
+        Route::middleware("prevent_roles:manager, gm, branch")->group(
+            function () {
+                Route::get('/cabang/add_cabang', [cabangController::class, 'addform'])->name('add.cabang');
+                Route::get('/cabang/edit_cabang/{id}', [cabangController::class, 'editform'])->name('edit.cabang');
+                Route::post('/cabang/store_cabang', [cabangController::class, 'store'])->name('store.cabang');
+                Route::patch('/cabang/update_cabang/{id}', [cabangController::class, 'update'])->name('update.cabang');
+                Route::delete('/cabang/{id}', [cabangController::class, 'destroy'])->name('delete.cabang');
+            }
+        );
 
         // -------------------------------------------------------------------------------------
 
         //route User----------------------------------------------------------------------
-        Route::get('/user', [userController::class, 'index'])->name('user');
-        Route::get('/user/add_user', [userController::class, 'addform'])->name('add.user');
-        Route::post('/user/store_user', [userController::class, 'store'])->name('store.user');
-        Route::get('/user/edit_user/{id}', [userController::class, 'edit'])->name('edit.user');
-        Route::post('/user/{id}', [userController::class, 'update'])->name('users.update');
+        Route::get('/user', [userController::class, 'index'])->name('user')->middleware("prevent_roles:branch");;
+        Route::middleware("prevent_roles:gm,branch")->group(
+            function () {
+                Route::get('/user/add_user', [userController::class, 'addform'])->name('add.user');
+                Route::post('/user/store_user', [userController::class, 'store'])->name('store.user');
+                Route::get('/user/edit_user/{id}', [userController::class, 'edit'])->name('edit.user');
+                Route::post('/user/{id}', [userController::class, 'update'])->name('users.update');
+            }
+        );
         // -------------------------------------------------------------------------------------
-
-        //route Pengajuan----------------------------------------------------------------------
         Route::get('/pengajuan', [pengajuanController::class, 'index'])->name('pengajuan');
         Route::get('/pengajuan/add_pengajuan', [pengajuanController::class, 'create'])->name('create.pengajuan');
         Route::post('/pengajuan/store_pengajuan', [pengajuanController::class, 'store'])->name('store.pengajuan');
-        Route::patch("/pengajuan/ganti_status/{id}", [pengajuanController::class, 'update'])->name("update.pengajuan");
-        Route::get('/status_pengajuan_setuju', [pengajuanController::class, 'setuju']);
-        Route::get('/status_pengajuan_tdksetuju', [pengajuanController::class, 'tdksetuju']);
+        Route::patch("/pengajuan/ganti_status/{id}", [pengajuanController::class, 'update'])->name("update.pengajuan")->middleware("prevent_roles:admin, branch, manager");
         // -------------------------------------------------------------------------------------
 
         //route Detail User----------------------------------------------------------------------
-        Route::get('/detail_user', [detail_userController::class, 'index']);
+        Route::get('/detail_user', [detail_userController::class, 'index'])->middleware("prevent_roles:branch");
         // -------------------------------------------------------------------------------------
     });

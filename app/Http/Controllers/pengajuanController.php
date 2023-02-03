@@ -75,12 +75,4 @@ class pengajuanController extends Controller
 
         return redirect()->route("pengajuan")->with("success", "Berhasil mengganti status pengajuan");
     }
-    public function setuju()
-    {
-        return view('v_pengajuan.setuju');
-    }
-    public function tdksetuju()
-    {
-        return view('v_pengajuan.tdksetuju');
-    }
 }

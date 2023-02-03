@@ -20,6 +20,7 @@ class DatabaseSeeder extends Seeder
             KondisiSeeder::class,
             PenempatanSeeder::class,
             UmurEkonomisSeeder::class,
+            RoleSeeder::class,
         ]);
     }
 }

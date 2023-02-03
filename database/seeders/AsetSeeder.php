@@ -24,7 +24,6 @@ class AsetSeeder extends Seeder
                 'spek' => 'Tanah dan Bangunan SHM no.0258/Mekarrahayu dan no.02541/Mekarrahayu',
                 'qty' => '2',
                 'umur_ekonomis_id' => '1',
-                'usia_aset' => '6',
                 'kondisi_id' => '2',
                 'harga' => '76128000',
                 'created_at' => date('Y-m-d H:i:s'),
@@ -33,7 +32,5 @@ class AsetSeeder extends Seeder
         ];
 
         tb_aset::insert($aset);
-
-        tb_aset::factory()->count(100)->create();
     }
 }

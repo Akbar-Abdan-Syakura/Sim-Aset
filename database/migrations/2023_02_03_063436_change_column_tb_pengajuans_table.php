@@ -28,7 +28,7 @@ class ChangeColumnTbPengajuansTable extends Migration
     {
         Schema::table("tb_pengajuans", function (Blueprint $table) {
             $table->dropColumn("harga");
-            $table->dropIndex(["kd_pengajuan"]);
+            $table->dropUnique(["kd_pengajuan"]);
         });
     }
 }
