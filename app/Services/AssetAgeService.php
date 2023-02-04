@@ -14,4 +14,11 @@ class AssetAgeService
         $diff = $purchasingDate->diffInYears(Carbon::now());
         $requestedData["usia_aset"] = $diff;
     }
+
+    public static function getAssetAge($date)
+    {
+        $purchasingDate = Carbon::parse($date);
+        $diff = $purchasingDate->diffInYears(Carbon::now());
+        return $diff;
+    }
 }

@@ -16,7 +16,7 @@ class AsetSeeder extends Seeder
     {
         $aset = [
             [
-                'kd_aset' => '01.01.002',
+                'kd_aset' => 'AST-00001',
                 'nama' => 'Rumah',
                 'tgl_perolehan' => '2016-03-31',
                 'cabang_id' => '1',

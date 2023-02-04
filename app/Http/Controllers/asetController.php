@@ -58,7 +58,6 @@ class asetController extends Controller
             if (!$asset)
                 throw new EmptyDataException();
 
-            AssetAgeService::setAssetAge($requestedData);
             tb_aset::where("id", $id)->update($requestedData);
             $response = [
                 "success" => true,
@@ -66,7 +65,7 @@ class asetController extends Controller
         } catch (Exception $e) {
             $response = [
                 "success" => false,
-                "message" => "Terjadi kesalahan silahkan coba lagi"
+                "message" => $e->getMessage()
             ];
         }
         if ($this->isError($response))
@@ -77,7 +76,6 @@ class asetController extends Controller
     public function store(StoreAssetRequest $request): RedirectResponse
     {
         $requestedData = $request->validated();
-        AssetAgeService::setAssetAge($requestedData);
         $requestedData["kd_aset"] = GenerateKodeAssetService::getGeneratedKode();
         try {
             tb_aset::create($requestedData);

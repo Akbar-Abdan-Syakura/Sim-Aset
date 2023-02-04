@@ -46,7 +46,7 @@
                     <td>{{ $row->spek }}</td>
                     <td>{{ $row->qty }}</td>
                     <td>{{ $row->umur->umur_ekonomis ??"-" }}</td>
-                    <td>{{ $row->usia_aset }} Tahun</td>
+                    <td>{{ getUsiaAsset($row->tgl_perolehan) }} Tahun</td>
                     <td>{{ $row->kondisi->kondisi ??"-" }}</td>
                     <td class="text-nowrap">{{ intToRupiah($row->harga) }}</td>
                     @canany(['isManager', 'isAdmin'])

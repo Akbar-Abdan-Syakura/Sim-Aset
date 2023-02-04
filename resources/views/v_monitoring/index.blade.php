@@ -35,7 +35,7 @@
                     <td>{{ intToRupiah($asset->harga) }}</td>
                     <td>{{ $asset->cabang->nama_cbng ?? "-" }}</td>
                     <td>{{ $asset->tgl_perolehan }}</td>
-                    <td>{{ $asset->usia_aset }} tahun</td>
+                    <td>{{ getUsiaAsset($asset->tgl_perolehan) }} Tahun</td>
                     <td>{{ $asset->umur->umur_ekonomis }} tahun</td>
                     <td>
                         <span class="badge @if($asset->kondisi_id==3) badge-warning @else badge-danger @endif">{{ $asset->kondisi->kondisi }}</span>
