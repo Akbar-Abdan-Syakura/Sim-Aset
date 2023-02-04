@@ -43,7 +43,7 @@
                     <td>{{ $row->kondisi->kondisi ?? "-" }}</td>
                     <td class="text-nowrap">{{ intToRupiah($row->harga) }}</td>
                     <td>
-                        <span class="badge @if($row->status='Perlu Diperbaiki') badge-warning @else badge-danger @endif ">
+                        <span class="badge @if($row->status=='Perlu Diperbaiki') badge-warning @else badge-danger @endif ">
                             {{ $row->status }}
                         </span>
                     </td>
