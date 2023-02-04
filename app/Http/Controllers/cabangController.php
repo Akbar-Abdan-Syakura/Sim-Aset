@@ -68,7 +68,7 @@ class cabangController extends Controller
         }
     }
 
-    public function destroy(Request $request, $id)
+    public function destroy($id)
     {
         try {
             $cabang = tb_cabang::find($id);
