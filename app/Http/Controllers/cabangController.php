@@ -42,7 +42,7 @@ class cabangController extends Controller
                 'created_at' => Carbon::now()
             ]);
 
-            return redirect('cabang')->with('success', 'Data Berhasil Ditambahkan!');
+            return redirect('cabang')->with('success', 'Berhasil menambah data kantor cabang!');
         } catch (\Exception $e) {
             return redirect('cabang')->with('error', 'Terjadi Kesalahan Saat Menambah Data.');
         }
@@ -59,11 +59,12 @@ class cabangController extends Controller
             $cabang = tb_cabang::find($id);
             $cabang->nama_cbng = $request->nama_cbng;
             $cabang->alamat = $request->alamat;
+            $cabang->updated_at = Carbon::now();
             $cabang->save();
 
-            return redirect('cabang')->with('success', 'Data Berhasil Diubah!');
+            return redirect('cabang')->with('success', 'Berhasil mengubah data kantor cabang!');
         } catch (\Exception $e) {
-            return redirect('cabang')->with('error', 'Terjadi Kesalahan Saat Mengubah Data.');
+            return redirect('cabang')->with('error', 'Terjadi kesalahan saat mengubah data.');
         }
     }
 
@@ -73,7 +74,7 @@ class cabangController extends Controller
             $cabang = tb_cabang::find($id);
             $cabang->delete();
 
-            return redirect('cabang')->with('success', 'Data Berhasil Dihapus!');
+            return redirect('cabang')->with('success', 'Berhasil menghapus data kantor cabang!');
         } catch (\Exception $e) {
             return redirect('cabang')->with('error', 'Terjadi Kesalahan Saat Mengubah Data.');
         }
