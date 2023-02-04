@@ -23,6 +23,10 @@ class AuthController extends Controller
         if (Auth::attempt($request->only("email", "password"))) {
             $request->session()->regenerate();
 
+            if (Auth::user()->role->name == "branch") {
+                return redirect()->intended('/pengajuan');
+            }
+
             return redirect()->intended('/');
         }
 
