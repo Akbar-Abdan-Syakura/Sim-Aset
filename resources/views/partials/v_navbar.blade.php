@@ -58,12 +58,13 @@
                    </div> --}}
             <li class="nav-item dropdown user-menu">
                 <a href="#" class="nav-link dropdown-toggle" data-toggle="dropdown">
-                    <img src="{{ asset('v_templates_lte') }}/dist/img/user2-160x160.jpg" class="user-image img-circle elevation-2" alt="User Image">
+                    {{-- <img src="{{ asset('v_templates_lte') }}/dist/img/user2-160x160.jpg" class="user-image img-circle elevation-2" alt="User Image"> --}}
                     <span class="d-none d-md-inline">{{ ucfirst(Auth::user()->name) }}</span>
                 </a>
                 <ul class="dropdown-menu dropdown-menu-lg dropdown-menu-right">
                     <li class="user-header bg-primary">
-                        <img src="{{ asset('v_templates_lte') }}/dist/img/user2-160x160.jpg" class="img-circle elevation-2" alt="User Image">
+                        <h4>{{ ucfirst(Auth::user()->name) }}</h4>
+                        {{-- <img src="{{ asset('v_templates_lte') }}/dist/img/user2-160x160.jpg" class="img-circle elevation-2" alt="User Image"> --}}
                         <p>
                             <small>{{ Auth::user()->role->fullname }}</small>
                         </p>
@@ -71,7 +72,6 @@
                     <li class="user-footer">
                         <form action="{{ route('auth.logout') }}" method="POST">
                             @csrf
-                            <a href="{{ url('detail_user') }}" class="btn btn-default btn-flat">Profile</a>
                             <button type="submit" class="btn btn-default btn-flat float-right">Sign out</button>
                         </form>
                     </li>
