@@ -25,7 +25,6 @@
                     </tr>
                 </thead>
                 <tbody>
-                    @php($i = 1)
                     @foreach ($data as $key => $row)
                         <tr>
                             <td>{{ $data->firstItem() + $key }}</td>
