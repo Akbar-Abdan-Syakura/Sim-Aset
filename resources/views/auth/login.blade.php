@@ -7,7 +7,8 @@
     <title>{{ $title }}</title>
 
     <!-- Google Font: Source Sans Pro -->
-    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,400i,700&display=fallback">
+    <link rel="stylesheet"
+        href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,400i,700&display=fallback">
     <!-- Font Awesome -->
     <link rel="stylesheet" href="{{ asset('v_templates_lte/plugins/fontawesome-free/css/all.min.cs') }}">
     <!-- icheck bootstrap -->
@@ -21,19 +22,19 @@
 <body class="hold-transition login-page">
 
     <div class="login-box">
-        <div class="login-logo">
-            <img src="{{ asset('images/logoperusahaan.JPG') }}" alt="" srcset="" width="200px">
-            <br>
-            Sistem Informasi Management Asset
-            <br>
-            <b>
-                PT. Dapensi Trio Usaha
-            </b>
-            <br>
-        </div>
         <!-- /.login-logo -->
         <x-alert></x-alert>
-        <div class="card">
+        <div class="card card-outline card-primary">
+            <div class="card-header text-center">
+                <h5>
+                    Sistem Informasi Management Asset
+                </h5>
+                <h4>
+                    <b>
+                        PT. Dapensi Trio Usaha
+                    </b>
+                </h4>
+            </div>
             <div class="card-body login-card-body">
                 <p class="login-box-msg">Sign in to start your session</p>
 
