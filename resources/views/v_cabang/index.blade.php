@@ -13,7 +13,7 @@
             @endcanany
         </div>
         <div class="card-body">
-            <table id="example1" class="table table-bordered table-striped">
+            <table id="myTable" class="table table-bordered table-striped">
                 <thead>
                     <tr>
                         <th>No.</th>
@@ -26,9 +26,9 @@
                 </thead>
                 <tbody>
                     @php($i = 1)
-                    @foreach ($data as $row)
+                    @foreach ($data as $key => $row)
                         <tr>
-                            <td>{{ $i++ }}</td>
+                            <td>{{ $data->firstItem() + $key }}</td>
                             <td>{{ $row->nama_cbng }}</td>
                             <td>{{ $row->alamat }}</td>
                             @canany(['isAdmin'])
@@ -79,6 +79,8 @@
                         </tr>
                     @endforeach
             </table>
+            <br>
+            {{ $data->links() }}
         </div>
     </div>
 @endsection

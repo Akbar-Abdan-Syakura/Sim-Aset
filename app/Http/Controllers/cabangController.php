@@ -16,6 +16,7 @@ class cabangController extends Controller
     public function index()
     {
         $data = tb_cabang::get();
+        $data = tb_cabang::paginate(5);
         return view('v_cabang.index', compact('data'));
     }
     public function addform()
