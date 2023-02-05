@@ -423,6 +423,7 @@ class AsetSeeder extends Seeder
             ],
         ];
 
+
         tb_aset::insert($aset);
     }
 }
