@@ -3,6 +3,7 @@
 namespace Database\Factories;
 
 use App\Models\tb_aset;
+use App\Services\GenerateKodeAssetService;
 use Illuminate\Database\Eloquent\Factories\Factory;
 
 class AssetFactory extends Factory
@@ -16,7 +17,7 @@ class AssetFactory extends Factory
     public function definition()
     {
         return [
-            "kd_aset" => "kode_" . $this->faker->unique()->randomNumber(),
+            "kd_aset" => GenerateKodeAssetService::getGeneratedKode(),
             "nama" => $this->faker->name(),
             'tgl_perolehan' => $this->faker->dateTimeBetween(),
             "cabang_id" => $this->faker->numberBetween(1, 10),

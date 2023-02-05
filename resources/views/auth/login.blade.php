@@ -15,14 +15,24 @@
     <!-- Theme style -->
     <link rel="stylesheet" href="{{ asset('v_templates_lte/dist/css/adminlte.min.css') }}">
 
+
 </head>
 
 <body class="hold-transition login-page">
+
     <div class="login-box">
         <div class="login-logo">
-            <a href="../../index2.html"><b>Admin</b>LTE</a>
+            <img src="{{ asset('images/logoperusahaan.JPG') }}" alt="" srcset="" width="200px">
+            <br>
+            Sistem Informasi Management Asset
+            <br>
+            <b>
+                PT. Dapensi Trio Usaha
+            </b>
+            <br>
         </div>
         <!-- /.login-logo -->
+        <x-alert></x-alert>
         <div class="card">
             <div class="card-body login-card-body">
                 <p class="login-box-msg">Sign in to start your session</p>
