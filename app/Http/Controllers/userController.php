@@ -18,6 +18,7 @@ class userController extends Controller
     public function index()
     {
         $data = User::all()->except(Auth::id());
+        $data = User::paginate(2);
         return view('v_user.index', compact('data'));
     }
     public function addform()

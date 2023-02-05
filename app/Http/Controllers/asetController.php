@@ -21,7 +21,7 @@ class asetController extends Controller
 {
     public function index()
     {
-        $data = tb_aset::with(['cabang', 'penempatan', 'umur', 'kondisi'])->paginate(15);
+        $data = tb_aset::with(['cabang', 'penempatan', 'umur', 'kondisi'])->paginate(10);
         $result = new asetResource($data);
         return view('v_aset.index', compact('result'));
     }
