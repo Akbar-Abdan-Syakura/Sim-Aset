@@ -2,12 +2,18 @@
 
 namespace App\Models;
 
+use Database\Factories\AssetFactory;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
 class tb_aset extends Model
 {
     use HasFactory;
+
+    protected static function newFactory()
+    {
+        return AssetFactory::new();
+    }
 
     protected $fillable = [
         'kd_aset',

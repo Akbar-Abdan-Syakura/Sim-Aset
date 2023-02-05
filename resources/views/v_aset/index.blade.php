@@ -13,7 +13,7 @@
         @endcanany
     </div>
     <div class="card-body">
-        <table id="example1" class="table table-bordered table-striped mb-4">
+        <table id="myTable" class="table table-bordered table-striped mb-4">
             <thead>
                 <tr>
                     <th>No.</th>
@@ -36,8 +36,7 @@
             <tbody>
                 @foreach ($result as $key=> $row)
                 <tr>
-                    {{-- <td>{{ $result->firstItem() + $key }}</td> --}}
-                    <td>{{ $row->kd_aset }}</td>
+                    <td>{{ $result->firstItem() + $key }}</td>
                     <td>{{ $row->kd_aset }}</td>
                     <td>{{ $row->nama }}</td>
                     <td>{{ $row->tgl_perolehan }}</td>
@@ -67,7 +66,7 @@
                 @endforeach
             </tbody>
         </table>
-        {{-- {{ $result->links() }} --}}
+        {{ $result->links() }}
     </div>
 </div>
 @endsection

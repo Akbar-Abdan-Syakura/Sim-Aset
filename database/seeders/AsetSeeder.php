@@ -425,5 +425,9 @@ class AsetSeeder extends Seeder
 
 
         tb_aset::insert($aset);
+
+        for ($i = 0; $i < 10; $i++) {
+            tb_aset::factory()->count(1000)->create();
+        }
     }
 }

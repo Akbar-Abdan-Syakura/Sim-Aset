@@ -23,6 +23,8 @@ scratch. This page gets rid of all links and provides the needed markup only.
     <!-- Theme style -->
     <link rel="stylesheet" href="{{ asset('v_templates_lte/dist/css/adminlte.min.css') }}">
     <link rel="stylesheet" href="{{ asset('v_templates_lte/plugins/sweetalert2-theme-bootstrap-4/bootstrap-4.min.css') }}">
+    <link rel="stylesheet" href="https//cdn.datatables.net/1.13.2/css/jquery.dataTables.min.css.css">
+
 </head>
 
 <body class="hold-transition sidebar-mini">
@@ -76,6 +78,7 @@ scratch. This page gets rid of all links and provides the needed markup only.
     <script src="https://cdnjs.com/libraries/bootstrap-modal"></script>
     <!-- AdminLTE App -->
     <script src="{{ asset('v_templates_lte/dist/js/adminlte.min.js') }}"></script>
+    <script src="https//cdn.datatables.net/1.13.2/js/jquery.dataTables.min.js"></script>
 
     @yield("custom-scripts")
     <script>

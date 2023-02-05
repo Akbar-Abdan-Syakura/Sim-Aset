@@ -2,10 +2,12 @@
 
 namespace Database\Factories;
 
+use App\Models\tb_aset;
 use Illuminate\Database\Eloquent\Factories\Factory;
 
 class AssetFactory extends Factory
 {
+    protected $model = tb_aset::class;
     /**
      * Define the model's default state.
      *
