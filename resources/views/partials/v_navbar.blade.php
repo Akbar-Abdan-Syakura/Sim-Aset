@@ -17,7 +17,8 @@
                 <div class="navbar-search-block">
                     <form class="form-inline">
                         <div class="input-group input-group-sm">
-                            <input class="form-control form-control-navbar" type="search" placeholder="Search" aria-label="Search">
+                            <input class="form-control form-control-navbar" type="search" placeholder="Search"
+                                aria-label="Search">
                             <div class="input-group-append">
                                 <button class="btn btn-navbar" type="submit">
                                     <i class="fas fa-search"></i>
@@ -63,11 +64,11 @@
                 </a>
                 <ul class="dropdown-menu dropdown-menu-lg dropdown-menu-right">
                     <li class="user-header bg-primary">
-                        <h4>{{ ucfirst(Auth::user()->name) }}</h4>
-                        {{-- <img src="{{ asset('v_templates_lte') }}/dist/img/user2-160x160.jpg" class="img-circle elevation-2" alt="User Image"> --}}
-                        <p>
-                            <small>{{ Auth::user()->role->fullname }}</small>
-                        </p>
+                        <h3>{{ ucfirst(Auth::user()->name) }}</h4>
+                            {{-- <img src="{{ asset('v_templates_lte') }}/dist/img/user2-160x160.jpg" class="img-circle elevation-2" alt="User Image"> --}}
+                            <h5>
+                                <small>{{ Auth::user()->role->fullname }}</small>
+                            </h5>
                     </li>
                     <li class="user-footer">
                         <form action="{{ route('auth.logout') }}" method="POST">
