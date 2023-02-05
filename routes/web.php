@@ -49,6 +49,7 @@ Route::middleware(["auth", "roles:admin,manager,gm,branch"])
                 Route::get('/aset/edit_aset/{id}', [asetController::class, 'editForm'])->name('edit.aset');
                 Route::patch('/aset/{id}', [asetController::class, 'update'])->name('update.aset');
                 Route::post('/aset/store_aset', [asetController::class, 'store'])->name('store.aset');
+                Route::delete('/aset/delete_aset/{id}', [asetController::class, 'destroy'])->name('destroy.aset');
             }
         );
         // -------------------------------------------------------------------------------------

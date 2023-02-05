@@ -56,10 +56,15 @@
                         </a>
                         <br>
                         <br>
-                        <a href="" class="btn btn-sm btn-danger" id="delete">
-                            Hapus Data
-                            <i class="fas fa-trash-alt"></i>
-                        </a>
+                        <form id="form-delete" action="{{ route('destroy.aset', $row->id) }}" method="POST">
+                            @csrf
+                            @method("DELETE")
+                            <button type="submit" form="form-delete" class="btn btn-sm btn-danger btn-delete">
+                                Hapus Data
+                                <i class="fas fa-trash-alt"></i>
+                            </button>
+                        </form>
+
                     </td>
                     @endcanany
                 </tr>
@@ -69,4 +74,44 @@
         {{ $result->links() }}
     </div>
 </div>
+@endsection
+
+@section("custom-scripts")
+<script>
+    $(function() {
+        $(".btn-delete").on("click", function(e){
+            e.preventDefault();
+            var form = $(this).parents('form');
+
+            Swal.fire({
+                title: "Apakah anda yakin ?",
+                text: "Data aset yang dihapus tidak dapat dikembalikan !",
+                type: "warning",
+                showCancelButton: true,
+                confirmButtonColor: "#DD6B55",
+                confirmButtonText: "Ya saya yakin!",
+                cancelButtonText: "Batalkan!",
+                // closeOnConfirm: false
+            }, function(isConfirm){
+                console.log(form);
+
+                if (isConfirm) form.submit();
+            });
+            Swal.fire({
+                title: "Apakah anda yakin ?",
+                text: "Data aset yang dihapus tidak dapat dikembalikan !",
+                showDenyButton: true,
+                confirmButtonText: "Ya saya yakin!",
+                denyButtonText: "Batalkan!",
+                }).then((result) => {
+                /* Read more about isConfirmed, isDenied below */
+                if (result.isConfirmed) {
+                    form.submit();
+                } else if (result.isDenied) {
+                    Swal.fire('Batal menghapus data aset', '', 'info')
+                }
+                })
+        })
+        });
+</script>
 @endsection

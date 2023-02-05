@@ -94,4 +94,11 @@ class asetController extends Controller
 
         return redirect()->route("aset")->with("success", "Berhasil menambahkan data asset");
     }
+
+
+    public function destroy(int $id)
+    {
+        tb_aset::destroy($id);
+        return redirect()->route("aset")->with("success", "Berhasil menghapus data asset");
+    }
 }
