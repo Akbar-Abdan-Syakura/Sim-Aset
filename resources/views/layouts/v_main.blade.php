@@ -12,17 +12,23 @@ scratch. This page gets rid of all links and provides the needed markup only.
     <link rel="icon" href="{{ asset('images/logoperusahaan.JPG') }}" type="image" sizes="16x16">
     <title>SIM ASET | @yield('title')</title>
     <!-- Google Font: Source Sans Pro -->
-    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,400i,700&display=fallback">
+    <link rel="stylesheet"
+        href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,400i,700&display=fallback">
     <!-- Font Awesome Icons -->
-    <link href="http://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.3.0/css/font-awesome.css" rel="stylesheet" type='text/css'>
+    <link href="http://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.3.0/css/font-awesome.css" rel="stylesheet"
+        type='text/css'>
     <link rel="stylesheet" href="{{ asset('v_templates_lte/plugins/fontawesome-free/css/all.min.css') }}">
     <!-- Datatables Style -->
-    <link rel="stylesheet" href="{{ asset('v_templates_lte/plugins/datatables-bs4/css/dataTables.bootstrap4.min.css') }}">
-    <link rel="stylesheet" href="{{ asset('v_templates_lte/plugins/datatables-responsive/css/responsive.bootstrap4.min.css') }}">
-    <link rel="stylesheet" href="{{ asset('v_templates_lte/plugins/datatables-buttons/css/buttons.bootstrap4.min.css') }}">
+    <link rel="stylesheet"
+        href="{{ asset('v_templates_lte/plugins/datatables-bs4/css/dataTables.bootstrap4.min.css') }}">
+    <link rel="stylesheet"
+        href="{{ asset('v_templates_lte/plugins/datatables-responsive/css/responsive.bootstrap4.min.css') }}">
+    <link rel="stylesheet"
+        href="{{ asset('v_templates_lte/plugins/datatables-buttons/css/buttons.bootstrap4.min.css') }}">
     <!-- Theme style -->
     <link rel="stylesheet" href="{{ asset('v_templates_lte/dist/css/adminlte.min.css') }}">
-    <link rel="stylesheet" href="{{ asset('v_templates_lte/plugins/sweetalert2-theme-bootstrap-4/bootstrap-4.min.css') }}">
+    <link rel="stylesheet"
+        href="{{ asset('v_templates_lte/plugins/sweetalert2-theme-bootstrap-4/bootstrap-4.min.css') }}">
     <link rel="stylesheet" href="https//cdn.datatables.net/1.13.2/css/jquery.dataTables.min.css.css">
 
 </head>
@@ -80,14 +86,14 @@ scratch. This page gets rid of all links and provides the needed markup only.
     <script src="{{ asset('v_templates_lte/dist/js/adminlte.min.js') }}"></script>
     <script src="https//cdn.datatables.net/1.13.2/js/jquery.dataTables.min.js"></script>
 
-    @yield("custom-scripts")
+    @yield('custom-scripts')
     <script>
         $(function() {
             $("#example1").DataTable({
                 "responsive": true,
                 "lengthChange": false,
                 "autoWidth": false,
-                "buttons": ["excel", "pdf", "colvis"]
+                "buttons": ["excel", "colvis"]
             }).buttons().container().appendTo('#example1_wrapper .col-md-6:eq(0)');
             $('#example2').DataTable({
                 "paging": true,
