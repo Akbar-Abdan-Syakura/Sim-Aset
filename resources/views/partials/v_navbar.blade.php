@@ -9,7 +9,7 @@
         </ul>
         <!-- Right navbar links -->
         <ul class="navbar-nav ml-auto">
-            <!-- Navbar Search -->
+            {{-- <!-- Navbar Search -->
             <li class="nav-item">
                 <a class="nav-link" data-widget="navbar-search" href="#" role="button">
                     <i class="fas fa-search"></i>
@@ -30,7 +30,7 @@
                         </div>
                     </form>
                 </div>
-            </li>
+            </li> --}}
             <!-- Notifications Dropdown Menu -->
             {{-- < class="nav-item dropdown">
                        <a class="nav-link" data-toggle="dropdown" href="#">
