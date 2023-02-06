@@ -33,7 +33,6 @@
             "Database\\Seeders\\": "database/seeders/"
         },
         "files": [
-            "app/Helpers/formatIdr.php",
             "app/Helpers/formating.php"
         ]
     },
