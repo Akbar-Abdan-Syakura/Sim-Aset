@@ -85,7 +85,7 @@ class rekomendasiController extends Controller
                 }
                 return $item;
             });
-            dd($dataAssetFinal);
+            // dd($dataAssetFinal);
             $data = [
                 "assets" => $dataAssetFinal
             ];
