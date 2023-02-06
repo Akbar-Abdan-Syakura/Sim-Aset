@@ -166,8 +166,6 @@ return [
         /*
          * Package Service Providers...
          */
-        App\Providers\FormatIdrProvider::class,
-
         /*
          * Application Service Providers...
          */

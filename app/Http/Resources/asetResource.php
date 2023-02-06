@@ -17,7 +17,7 @@ class asetResource extends ResourceCollection
     public function toArray($request)
     {
         return [
-            'harga' => FormatIdr::rupiah($this->harga)
+            'harga' => intToRupiah($this->harga)
         ];
     }
 }
