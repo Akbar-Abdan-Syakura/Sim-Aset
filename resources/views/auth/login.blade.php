@@ -4,6 +4,7 @@
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="icon" href="{{ asset('images/logoperusahaan.JPG') }}" type="image" sizes="16x16">
     <title>{{ $title }}</title>
 
     <!-- Google Font: Source Sans Pro -->
