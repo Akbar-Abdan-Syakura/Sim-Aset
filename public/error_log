@@ -1,0 +1,2 @@
+[06-Feb-2023 20:49:09 Asia/Jakarta] PHP Warning:  require(/home/simp9854/apps/Sim-Aset/public/../vendor/autoload.php): failed to open stream: No such file or directory in /home/simp9854/apps/Sim-Aset/public/index.php on line 34
+[06-Feb-2023 20:49:09 Asia/Jakarta] PHP Fatal error:  require(): Failed opening required '/home/simp9854/apps/Sim-Aset/public/../vendor/autoload.php' (include_path='.:/opt/cpanel/ea-php74/root/usr/share/pear') in /home/simp9854/apps/Sim-Aset/public/index.php on line 34
