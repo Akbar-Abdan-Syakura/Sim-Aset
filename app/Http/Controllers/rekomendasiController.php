@@ -49,7 +49,7 @@ class rekomendasiController extends Controller
 
                 return $item;
             });
-
+            // dd($dataAsset);
             $maxC1 = $dataAsset->max("c1");
             $maxC2 = $dataAsset->max("c2");
             $minC3 = $dataAsset->min("c3");
@@ -62,7 +62,7 @@ class rekomendasiController extends Controller
                 $item["preferensiV"] = (0.3 * $item["c1SAW"]) + (0.4 * $item["c2SAW"]) + (0.3 * $item["c3SAW"]);
                 return $item;
             });
-
+            // dd($dataAssetSAW);
 
             $sumPreferensi = $dataAssetSAW->sum("preferensiV");
             $sumPreferensiRusakRingan = $dataAssetSAW->where("kondisi_id", 3)->sum("preferensiV");
@@ -85,7 +85,7 @@ class rekomendasiController extends Controller
                 }
                 return $item;
             });
-
+            dd($dataAssetFinal);
             $data = [
                 "assets" => $dataAssetFinal
             ];
