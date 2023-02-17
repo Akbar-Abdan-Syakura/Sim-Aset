@@ -25,7 +25,7 @@
                         href="{{ route('pengajuan', ['type' => 'tolak']) }}">Tolak</a>
                 </li>
             </ul>
-            <table id="example1" class="table table-bordered table-striped">
+            <table id="myTable" class="table table-bordered table-striped">
                 <thead>
                     <tr>
                         <th>No.</th>
@@ -90,6 +90,7 @@
                         </tr>
                     @endforeach
             </table>
+            {{ $data->links() }}
         </div>
     </div>
 @endsection

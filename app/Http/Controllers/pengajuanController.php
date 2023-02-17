@@ -19,7 +19,7 @@ class pengajuanController extends Controller
     {
         $type = $request->input("type", "pending");
 
-        $data = tb_pengajuan::with('user')->where("status", $type)->get();
+        $data = tb_pengajuan::with('user')->where("status", $type)->paginate(10);
         return view('v_pengajuan.index', compact('data'));
     }
 
