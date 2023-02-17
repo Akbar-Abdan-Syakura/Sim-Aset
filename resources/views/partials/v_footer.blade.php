@@ -4,7 +4,7 @@
         Sistem Informasi Manajemen Aset PT. Dapensi Trio Usaha
     </div>
     <!-- Default to the left -->
-    <strong>Copyright &copy; 2021-2023 Akbar Abdansya.</strong> All rights
+    <strong>Copyright &copy; PT. Dapensi Trio Usaha</strong> All rights
     reserved.
 </footer>
 </div>
