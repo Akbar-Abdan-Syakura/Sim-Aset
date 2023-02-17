@@ -55,11 +55,11 @@ Route::middleware(["auth", "roles:admin,manager,gm,branch"])
         // -------------------------------------------------------------------------------------
 
         //route Monitoring----------------------------------------------------------------------
-        Route::get('/monitoring', [monitoringController::class, 'index'])->middleware("prevent_roles:branch");;
+        Route::get('/monitoring', [monitoringController::class, 'index'])->middleware("prevent_roles:branch")->name('monitoring');;
         // -------------------------------------------------------------------------------------
 
         //route Rekomendasi----------------------------------------------------------------------
-        Route::get('/rekomendasi', [rekomendasiController::class, 'index'])->middleware("prevent_roles:branch");;
+        Route::get('/rekomendasi', [rekomendasiController::class, 'index'])->middleware("prevent_roles:branch")->name('rekomendasi');;
         // -------------------------------------------------------------------------------------
 
         // route Cabang----------------------------------------------------------------------

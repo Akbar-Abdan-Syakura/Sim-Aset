@@ -32,7 +32,7 @@
                 @canany(['isAdmin', 'isBranch', 'isGm', 'isManager'])
                     @cannot('isBranch')
                         <li class="nav-item">
-                            <a href="/" class="nav-link">
+                            <a href="/" class="nav-link {{ request()->is('/*') ? 'active' : '' }}">
                                 <i class="nav-icon fas fa-home"></i>
                                 <p>
                                     Dashboard
@@ -51,27 +51,27 @@
                         <ul class="nav nav-treeview">
                             @cannot('isBranch')
                                 <li class="nav-item">
-                                    <a href="/user" class="nav-link">
+                                    <a href="/user" class="nav-link {{ request()->is('user*') ? 'active' : '' }}">
                                         <i class="fas fa-users nav-icon"></i>
                                         <p>Data User</p>
                                     </a>
                                 </li>
                             @endcannot
                             <li class="nav-item">
-                                <a href="/aset" class="nav-link">
+                                <a href="/aset" class="nav-link {{ request()->is('aset*') ? 'active' : '' }}">
                                     <i class="fas fa-archive nav-icon"></i>
                                     <p> Data Aset </p>
                                 </a>
                             </li>
                             @cannot('isBranch')
                                 <li class="nav-item">
-                                    <a href="/monitoring" class="nav-link">
+                                    <a href="/monitoring" class="nav-link {{ request()->is('monitoring*') ? 'active' : '' }}">
                                         <i class="nav-icon fas fa-eye"></i>
                                         <p>Data Monitoring Aset</p>
                                     </a>
                                 </li>
                                 <li class="nav-item">
-                                    <a href="/cabang" class="nav-link">
+                                    <a href="/cabang" class="nav-link {{ request()->is('cabang*') ? 'active' : '' }}">
                                         <i class="fas fa-building nav-icon"></i>
                                         <p>Data Kantor Cabang</p>
                                     </a>
@@ -81,7 +81,7 @@
                     </li>
                     @cannot('isBranch')
                         <li class="nav-item">
-                            <a href="/rekomendasi" class="nav-link">
+                            <a href="/rekomendasi" class="nav-link {{ request()->is('rekomendasi*') ? 'active' : '' }}">
                                 <i class="nav-icon fas fa-lightbulb"></i>
                                 <p>
                                     Data Rekomendasi Aset
@@ -90,7 +90,7 @@
                         </li>
                     @endcannot
                     <li class="nav-item">
-                        <a href="/pengajuan" class="nav-link">
+                        <a href="/pengajuan" class="nav-link {{ request()->is('pengajuan*') ? 'active' : '' }}">
                             <i class="nav-icon fas fa-sticky-note"></i>
                             <p>
                                 Data Pengajuan Aset
