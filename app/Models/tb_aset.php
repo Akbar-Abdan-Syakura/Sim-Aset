@@ -43,4 +43,9 @@ class tb_aset extends Model
     {
         return $this->belongsTo(tb_kondisi::class, 'kondisi_id', 'id');
     }
+
+    public function category()
+    {
+        return $this->belongsTo(Category::class);
+    }
 }

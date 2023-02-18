@@ -23,7 +23,6 @@
                     <th>Lokasi</th>
                     <th>Penempatan</th>
                     <th>Spesifikasi</th>
-                    <th>QTY</th>
                     <th>Umur Ekonomis Aset</th>
                     <th>Usia Aset</th>
                     <th>Kondisi</th>
@@ -37,14 +36,13 @@
                 @foreach ($result as $key=> $row)
                 <tr>
                     <td>{{ $result->firstItem() + $key }}</td>
-                    <td>{{ $row->kd_aset }}</td>
-                    <td>{{ $row->nama }}</td>
+                    <td>{{ $row->category->kd_category }}</td>
+                    <td>{{ $row->category->nama }}</td>
                     <td>{{ $row->tgl_perolehan }}</td>
                     <td>{{ $row->cabang->nama_cbng ??"-" }}</td>
                     <td>{{ $row->penempatan->penempatan??"-" }}</td>
-                    <td>{{ $row->spek }}</td>
-                    <td>{{ $row->qty }}</td>
-                    <td>{{ $row->umur->umur_ekonomis ??"-" }}</td>
+                    <td>{{ $row->category->spek }}</td>
+                    <td>{{ $row->category->umur->umur_ekonomis ??"-" }}</td>
                     <td>{{ getUsiaAsset($row->tgl_perolehan) }} Tahun</td>
                     <td>{{ $row->kondisi->kondisi ??"-" }}</td>
                     <td class="text-nowrap">{{ intToRupiah($row->harga) }}</td>
