@@ -16,14 +16,11 @@ class tb_aset extends Model
     }
 
     protected $fillable = [
+        'category_id',
         'kd_aset',
-        'nama',
         'tgl_perolehan',
         'cabang_id',
         'penempatan_id',
-        'spek',
-        'qty',
-        'umur_ekonomis_id',
         'kondisi_id',
         'harga'
     ];

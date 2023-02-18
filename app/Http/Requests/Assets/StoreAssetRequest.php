@@ -24,14 +24,11 @@ class StoreAssetRequest extends FormRequest
     public function rules()
     {
         return [
-            "nama" => "",
+            "category_id" => "required|numeric",
             "tgl_perolehan" => "",
             "cabang_id" => "required|numeric",
             "penempatan_id" => "required|numeric",
-            "umur_ekonomis_id" => "required|numeric",
             "kondisi_id" => "required|numeric",
-            "spek" => "",
-            "qty" => "numeric|required",
             "harga" => "",
         ];
     }

@@ -11,8 +11,14 @@
         @method("PATCH")
         <div class="card-body">
             <div class="form-group">
-                <label for="inputNamaAset">Nama Aset Baru</label>
-                <input type="text" class="form-control" id="inputNamaAset" name="nama" placeholder="Enter Asset Name" value="{{ $asset->nama }}">
+                <label for="category_id">Pilih Nama Category</label>
+                <select class="form-control" id="category_id" name="category_id">
+                    @foreach ($categories as $category)
+                    <option value="{{ $category->id }}" @if ($category->id == $asset->category_id)
+                        selected
+                        @endif>{{ $category->nama }}</option>
+                    @endforeach
+                </select>
             </div>
             <div class="form-group">
                 <label for="Pilih Tanggal Perolehan">Tanggal Perolehan</label>
@@ -38,15 +44,6 @@
                 </select>
             </div>
             <div class="form-group">
-                <label for="ecomic_ages">Pilih Kelompok Umur Ekonomis</label>
-                <select class="form-control" id="ecomic_ages" name="umur_ekonomis_id">
-                    @foreach ($economicAges as $age)
-                    <option value="{{ $age->id }}" @if ($age->id == $asset->umur_ekonomis_id)
-                        selected @endif>{{ $age->kelompok }} | {{ $age->umur_ekonomis }}</option>
-                    @endforeach
-                </select>
-            </div>
-            <div class="form-group">
                 <label for="conditions">Pilih Kondisi Asset</label>
                 <select class="form-control" id="conditions" name="kondisi_id">
                     @foreach ($conditions as $condition)
@@ -54,16 +51,6 @@
                         selected @endif>{{ $condition->kondisi }}</option>
                     @endforeach
                 </select>
-            </div>
-            <div class="form-group">
-                <label for="Input Spesifikasi">Spesifikasi</label>
-                <textarea type="text" class="form-control" id="inputSpesifikasi" rows="3" name="spek" placeholder="Enter Specification">
-                {{ $asset->spek }}
-                </textarea>
-            </div>
-            <div class="form-group">
-                <label for="InputJumlahAset">Jumlah Aset</label>
-                <input type="number" class="form-control" id="InputJumlahAset" rows="3" name="qty" placeholder="Enter Quantity Of Assets" value="{{ $asset->qty }}"></input>
             </div>
             <div class="form-group">
                 <label for="InputHargaAset">Harga Aset</label>

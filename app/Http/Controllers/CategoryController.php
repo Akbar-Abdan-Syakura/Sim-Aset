@@ -8,7 +8,6 @@ use App\Models\Category;
 use App\Models\tb_umur_ekonomis;
 use App\Services\GenerateKodeCategoryService;
 use Exception;
-use Illuminate\Http\Request;
 
 class CategoryController extends Controller
 {

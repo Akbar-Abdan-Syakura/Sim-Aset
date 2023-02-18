@@ -8,6 +8,7 @@ use App\Http\Controllers\Controller;
 use App\Http\Requests\Assets\StoreAssetRequest;
 use App\Http\Requests\Assets\UpdateAssetRequest;
 use App\Http\Resources\asetResource;
+use App\Models\Category;
 use App\Models\tb_cabang;
 use App\Models\tb_kondisi;
 use App\Models\tb_penempatan;
@@ -28,9 +29,9 @@ class asetController extends Controller
     public function addform()
     {
         $data = [
+            "categories" => Category::all(),
             "branchs" => tb_cabang::all(),
             "placements" => tb_penempatan::all(),
-            "economicAges" => tb_umur_ekonomis::all(),
             "conditions" => tb_kondisi::all()
         ];
         return view('v_aset.addform', $data);
@@ -38,6 +39,7 @@ class asetController extends Controller
     public function editForm(int $id)
     {
         $data = [
+            "categories" => Category::all(),
             "branchs" => tb_cabang::all(),
             "placements" => tb_penempatan::all(),
             "economicAges" => tb_umur_ekonomis::all(),
@@ -93,7 +95,6 @@ class asetController extends Controller
 
         return redirect()->route("aset")->with("success", "Berhasil menambahkan data asset");
     }
-
 
     public function destroy(int $id)
     {
