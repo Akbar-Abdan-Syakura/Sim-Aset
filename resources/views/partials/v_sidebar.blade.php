@@ -2,8 +2,7 @@
 <aside class="main-sidebar sidebar-dark-primary elevation-4">
     <!-- Brand Logo -->
     <a href="/" class="brand-link">
-        <img src="{{ asset('images/logoperusahaan.JPG') }}" alt="" class="brand-image img-circle elevation-3"
-            style="opacity: 1">
+        <img src="{{ asset('images/logoperusahaan.JPG') }}" alt="" class="brand-image img-circle elevation-3" style="opacity: 1">
         <span class="brand-text font-weight-light">SIM ASET</span>
     </a>
     <!-- /.brandlogo-->
@@ -25,78 +24,83 @@
         <!-- /.sidebar search form --> --}}
         <!-- Sidebar Menu -->
         <nav class="mt-2">
-            <ul class="nav nav-pills nav-sidebar flex-column" data-widget="treeview" role="menu"
-                data-accordion="false">
+            <ul class="nav nav-pills nav-sidebar flex-column" data-widget="treeview" role="menu" data-accordion="false">
                 <!-- Add icons to the links using the .nav-icon class
                 with font-awesome or any other icon font library -->
                 @canany(['isAdmin', 'isBranch', 'isGm', 'isManager'])
-                    @cannot('isBranch')
+                @cannot('isBranch')
+                <li class="nav-item">
+                    <a href="/" class="nav-link {{ request()->is('/*') ? 'active' : '' }}">
+                        <i class="nav-icon fas fa-home"></i>
+                        <p>
+                            Dashboard
+                        </p>
+                    </a>
+                </li>
+                @endcannot
+                <li class="nav-item">
+                    <a href="#" class="nav-link">
+                        <i class="nav-icon fab fa-mdb"></i>
+                        <p>
+                            Master Data
+                            <i class="right fas fa-angle-left"></i>
+                        </p>
+                    </a>
+                    <ul class="nav nav-treeview">
+                        @cannot('isBranch')
                         <li class="nav-item">
-                            <a href="/" class="nav-link {{ request()->is('/*') ? 'active' : '' }}">
-                                <i class="nav-icon fas fa-home"></i>
-                                <p>
-                                    Dashboard
-                                </p>
+                            <a href="/user" class="nav-link {{ request()->is('user*') ? 'active' : '' }}">
+                                <i class="fas fa-users nav-icon"></i>
+                                <p>Data User</p>
                             </a>
                         </li>
-                    @endcannot
-                    <li class="nav-item">
-                        <a href="#" class="nav-link">
-                            <i class="nav-icon fab fa-mdb"></i>
-                            <p>
-                                Master Data
-                                <i class="right fas fa-angle-left"></i>
-                            </p>
-                        </a>
-                        <ul class="nav nav-treeview">
-                            @cannot('isBranch')
-                                <li class="nav-item">
-                                    <a href="/user" class="nav-link {{ request()->is('user*') ? 'active' : '' }}">
-                                        <i class="fas fa-users nav-icon"></i>
-                                        <p>Data User</p>
-                                    </a>
-                                </li>
-                            @endcannot
-                            <li class="nav-item">
-                                <a href="/aset" class="nav-link {{ request()->is('aset*') ? 'active' : '' }}">
-                                    <i class="fas fa-archive nav-icon"></i>
-                                    <p> Data Aset </p>
-                                </a>
-                            </li>
-                            @cannot('isBranch')
-                                <li class="nav-item">
-                                    <a href="/monitoring" class="nav-link {{ request()->is('monitoring*') ? 'active' : '' }}">
-                                        <i class="nav-icon fas fa-eye"></i>
-                                        <p>Data Monitoring Aset</p>
-                                    </a>
-                                </li>
-                                <li class="nav-item">
-                                    <a href="/cabang" class="nav-link {{ request()->is('cabang*') ? 'active' : '' }}">
-                                        <i class="fas fa-building nav-icon"></i>
-                                        <p>Data Kantor Cabang</p>
-                                    </a>
-                                </li>
-                            @endcannot
-                        </ul>
-                    </li>
-                    @cannot('isBranch')
+                        @endcannot
                         <li class="nav-item">
-                            <a href="/rekomendasi" class="nav-link {{ request()->is('rekomendasi*') ? 'active' : '' }}">
-                                <i class="nav-icon fas fa-lightbulb"></i>
-                                <p>
-                                    Data Rekomendasi Aset
-                                </p>
+                            <a href="/aset" class="nav-link {{ request()->is('aset*') ? 'active' : '' }}">
+                                <i class="fas fa-archive nav-icon"></i>
+                                <p> Data Aset </p>
                             </a>
                         </li>
-                    @endcannot
-                    <li class="nav-item">
-                        <a href="/pengajuan" class="nav-link {{ request()->is('pengajuan*') ? 'active' : '' }}">
-                            <i class="nav-icon fas fa-sticky-note"></i>
-                            <p>
-                                Data Pengajuan Aset
-                            </p>
-                        </a>
-                    </li>
+                        <li class="nav-item">
+                            <a href="{{ route('category.index') }}" class="nav-link {{ request()->is('categories*') ? 'active' : '' }}">
+                                <i class="fas fa-tasks"></i>
+                                <p> Data Kategori </p>
+                            </a>
+                        </li>
+                        @cannot('isBranch')
+                        <li class="nav-item">
+                            <a href="/monitoring" class="nav-link {{ request()->is('monitoring*') ? 'active' : '' }}">
+                                <i class="nav-icon fas fa-eye"></i>
+                                <p>Data Monitoring Aset</p>
+                            </a>
+                        </li>
+                        <li class="nav-item">
+                            <a href="/cabang" class="nav-link {{ request()->is('cabang*') ? 'active' : '' }}">
+                                <i class="fas fa-building nav-icon"></i>
+                                <p>Data Kantor Cabang</p>
+                            </a>
+                        </li>
+                        @endcannot
+                    </ul>
+                </li>
+                @cannot('isBranch')
+                <li class="nav-item">
+                    <a href="/rekomendasi" class="nav-link {{ request()->is('rekomendasi*') ? 'active' : '' }}">
+                        <i class="nav-icon fas fa-lightbulb"></i>
+                        <p>
+                            Data Rekomendasi Aset
+                        </p>
+                    </a>
+                </li>
+                @endcannot
+                <li class="nav-item">
+                    <a href="/pengajuan" class="nav-link {{ request()->is('pengajuan*') ? 'active' : '' }}">
+                        <i class="nav-icon fas fa-sticky-note"></i>
+                        <p>
+                            Data Pengajuan Aset
+                        </p>
+                    </a>
+                </li>
                 @endcanany
             </ul>
         </nav>

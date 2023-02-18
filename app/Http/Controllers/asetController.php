@@ -12,7 +12,6 @@ use App\Models\tb_cabang;
 use App\Models\tb_kondisi;
 use App\Models\tb_penempatan;
 use App\Models\tb_umur_ekonomis;
-use App\Services\AssetAgeService;
 use App\Services\GenerateKodeAssetService;
 use Exception;
 use Illuminate\Http\RedirectResponse;

@@ -12,7 +12,7 @@ class dashboardController extends Controller
 {
     public function index()
     {
-        $dataAsset = tb_aset::with(['cabang', 'penempatan', 'umur', 'kondisi'])->whereIn("kondisi_id", [3, 4])->where("harga", ">", 100000)->get();
+        $dataAsset = tb_aset::with(['cabang', 'penempatan',  'kondisi'])->whereIn("kondisi_id", [3, 4])->where("harga", ">", 100000)->get();
         if ($dataAsset->count() > 0) {
 
             $dataAsset = collect($dataAsset)->map(function ($item) {

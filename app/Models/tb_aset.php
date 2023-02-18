@@ -37,10 +37,7 @@ class tb_aset extends Model
         return $this->belongsTo(tb_penempatan::class, 'penempatan_id', 'id');
     }
 
-    public function umur()
-    {
-        return $this->belongsTo(tb_umur_ekonomis::class, 'umur_ekonomis_id', 'id');
-    }
+
 
     public function kondisi()
     {

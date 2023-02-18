@@ -9,5 +9,9 @@ class Category extends Model
 {
     use HasFactory;
 
-    protected $guard = [];
+    protected $guarded = [];
+    public function umur()
+    {
+        return $this->belongsTo(tb_umur_ekonomis::class, 'umur_ekonomis_id', 'id');
+    }
 }

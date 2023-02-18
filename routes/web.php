@@ -8,6 +8,7 @@ use App\Http\Controllers\asetController;
 use App\Http\Controllers\Auth\AuthController;
 use App\Http\Controllers\userController;
 use App\Http\Controllers\cabangController;
+use App\Http\Controllers\CategoryController;
 use App\Http\Controllers\dashboardController;
 use App\Http\Controllers\pengajuanController;
 use App\Http\Controllers\monitoringController;
@@ -42,6 +43,17 @@ Route::middleware(["auth", "roles:admin,manager,gm,branch"])
         // -------------------------------------------------------------------------------------
 
         Route::get('/aset', [asetController::class, 'index'])->name('aset');
+        Route::group([
+            "controller" => CategoryController::class,
+            "prefix" => "categories",
+            "as" => "category."
+        ], function () {
+            Route::get('/', 'index')->name('index');
+            Route::get('/create', 'create')->name('create');
+            Route::post('/', 'store')->name('store');
+            Route::get('/edit/{id}', 'edit')->name('edit');
+            Route::patch('/{id}', 'update')->name('update');
+        });
         Route::middleware("prevent_roles:gm,branch")->group(
             function () {
                 //route Aset----------------------------------------------------------------------
