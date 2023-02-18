@@ -21,6 +21,7 @@
                     <th>Nama Aset</th>
                     <th>Spesifikasi</th>
                     <th>Umur Ekonomis Aset</th>
+                    <th>Kuantitas</th>
                     @canany(['isManager', 'isAdmin'])
                     <th>Action</th>
                     @endcanany
@@ -34,6 +35,7 @@
                     <td>{{ $row->nama }}</td>
                     <td>{{ $row->spek }}</td>
                     <td>{{ $row->umur->umur_ekonomis ??"-" }}</td>
+                    <td>{{ count($row->aset) }}</td>
                     @canany(['isManager', 'isAdmin'])
                     <td class="text-sm-center">
                         <a href="{{ route('category.edit', $row->id) }}" class="btn btn-sm btn-warning">

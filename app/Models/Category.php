@@ -14,4 +14,9 @@ class Category extends Model
     {
         return $this->belongsTo(tb_umur_ekonomis::class, 'umur_ekonomis_id', 'id');
     }
+
+    public function aset()
+    {
+        return $this->hasMany(tb_aset::class);
+    }
 }
