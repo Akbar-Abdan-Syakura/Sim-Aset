@@ -4,7 +4,8 @@
 @section('content')
 <div class="card">
     <div class="card-body">
-        <table id="example1" class="table table-bordered table-striped">
+        <button class="btn btn-primary mb-4" id="generate">Generate</button>
+        <table id="example1" class="table table-bordered table-striped d-none">
             <thead>
                 <tr>
                     <th>No.</th>
@@ -42,4 +43,12 @@
         </table>
     </div>
 </div>
+@endsection
+
+@section("custom-scripts")
+<script>
+    $("#generate").on("click", function(){
+        $("#example1").removeClass("d-none");
+    });
+</script>
 @endsection
