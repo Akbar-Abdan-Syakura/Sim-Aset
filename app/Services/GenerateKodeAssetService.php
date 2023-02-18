@@ -16,6 +16,6 @@ class GenerateKodeAssetService
             $number = $number[1];
             $number = str_pad(intval($number) + 1, strlen($number), "0", STR_PAD_LEFT);
         }
-        return "AST-" . $number;
+        return "TRNS-" . $number;
     }
 }
