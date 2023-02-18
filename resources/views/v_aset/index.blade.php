@@ -13,6 +13,7 @@
         @endcanany
     </div>
     <div class="card-body">
+        <x-cabang-navbar></x-cabang-navbar>
         <table id="myTable" class="table table-bordered table-striped mb-4">
             <thead>
                 <tr>

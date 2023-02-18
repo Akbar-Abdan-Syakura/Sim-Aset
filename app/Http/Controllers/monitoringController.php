@@ -11,7 +11,12 @@ class monitoringController extends Controller
 {
     public function index()
     {
-        $dataAsset = tb_aset::with("cabang", "penempatan", "kondisi", "category")->get();
+        $cabangId = request()->query("cabang");
+        if ($cabangId) {
+            $dataAsset = tb_aset::with("cabang", "penempatan", "kondisi", "category")->where("cabang_id", $cabangId)->get();
+        } else {
+            $dataAsset = tb_aset::with("cabang", "penempatan", "kondisi", "category")->get();
+        }
         $dataAsset = collect($dataAsset);
         $dataAsset = $dataAsset->filter(function ($item) {
             AssetAgeService::setAssetAge($item);

@@ -7,12 +7,14 @@
 <div class="card">
     <div class="card-body">
         <button class="btn btn-primary mb-4" id="generate">Generate</button>
+        <x-cabang-navbar></x-cabang-navbar>
         <table id="example1" class="table table-bordered table-striped d-none">
             <thead>
                 <tr>
                     <th>No.</th>
                     <th>Kode Aset</th>
                     <th>Nama Aset</th>
+                    <th>Kantor Cabang</th>
                     <th>Kondisi</th>
                     <th>Harga</th>
                     <th>Status</th>
@@ -24,6 +26,7 @@
                     <td>{{ $key + 1 }}</td>
                     <td>{{ $row->kd_aset }}</td>
                     <td>{{ $row->category->nama }}</td>
+                    <td>{{ $row->cabang->nama_cbng }}</td>
                     <td>{{ $row->kondisi->kondisi ?? '-' }}</td>
                     <td class="text-nowrap">{{ intToRupiah($row->harga) }}</td>
                     <td>

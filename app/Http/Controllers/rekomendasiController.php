@@ -11,7 +11,12 @@ class rekomendasiController extends Controller
 {
     public function index()
     {
-        $dataAsset = tb_aset::with(['cabang', 'penempatan', 'kondisi'])->whereIn("kondisi_id", [3, 4])->where("harga", ">", 100000)->get();
+        $cabangId = request()->query("cabang");
+        if ($cabangId) {
+            $dataAsset = tb_aset::with(['cabang', 'penempatan', 'kondisi'])->whereIn("kondisi_id", [3, 4])->where("harga", ">", 100000)->where("cabang_id", $cabangId)->get();
+        } else {
+            $dataAsset = tb_aset::with(['cabang', 'penempatan', 'kondisi'])->whereIn("kondisi_id", [3, 4])->where("harga", ">", 100000)->get();
+        }
         if ($dataAsset->count() > 0) {
 
             $dataAsset = collect($dataAsset)->map(function ($item) {
