@@ -87,7 +87,7 @@
                                 <tr>
                                     <th scope="row">{{ $key+1 }}</th>
                                     <td>{{ $item->kd_pengajuan }}</td>
-                                    <td>{{ $item->nama_aset }}</td>
+                                    <td>{{ $item->category->nama }}</td>
                                     <td>{{ intToRupiah($item->harga) }}</td>
                                     <td>{{ $item->status }}</td>
                                     <td>{{ $item->user->name }}</td>
