@@ -7,6 +7,7 @@ use App\Models\tb_pengajuan;
 use App\Services\AssetAgeService;
 use App\Statics\BobotStatic;
 use App\Http\Controllers\Controller;
+use App\Models\Category;
 
 class dashboardController extends Controller
 {
@@ -106,10 +107,11 @@ class dashboardController extends Controller
             }
         });
         $data = [
-            "totalAsset" => tb_aset::all()->count(),
+            "totalAsset" => Category::all()->count(),
             "totalRekomendasi" => $dataAssetFinal->count() ?? 0,
             "totalPengajuan" => tb_pengajuan::all()->count(),
             "totalMonitoring" => $dataMonitoring->count(),
+            "latestPengajuan" => tb_pengajuan::where("status", "pending")->orderBy("id", "DESC")->limit(10)->get()
         ];
         return view('v_dashboard.index', $data);
     }
