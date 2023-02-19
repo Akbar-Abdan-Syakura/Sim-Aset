@@ -48,12 +48,16 @@
                     </a>
                     <ul class="nav nav-treeview">
                         @cannot('isBranch')
+                        @cannot("isManager")
+                        @cannot("isGm")
                         <li class="nav-item">
                             <a href="/user" class="nav-link {{ request()->is('user*') ? 'active' : '' }}">
                                 <i class="fas fa-users nav-icon"></i>
                                 <p>Data User</p>
                             </a>
                         </li>
+                        @endcannot
+                        @endcannot
                         @endcannot
                         <li class="nav-item">
                             <a href="/aset" class="nav-link {{ request()->is('aset*') ? 'active' : '' }}">
@@ -74,12 +78,16 @@
                                 <p>Data Monitoring Aset</p>
                             </a>
                         </li>
+                        @cannot("isManager")
+                        @cannot("isGm")
                         <li class="nav-item">
                             <a href="/cabang" class="nav-link {{ request()->is('cabang*') ? 'active' : '' }}">
                                 <i class="fas fa-building nav-icon"></i>
                                 <p>Data Kantor Cabang</p>
                             </a>
                         </li>
+                        @endcannot
+                        @endcannot
                         @endcannot
                     </ul>
                 </li>
