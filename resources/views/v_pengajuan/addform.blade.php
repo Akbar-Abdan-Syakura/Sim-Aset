@@ -10,12 +10,12 @@
         @csrf
         <div class="card-body">
             <div class="form-group">
-                <label for="nama_aset">Nama Aset</label>
-                <input type="text" class="form-control" id="nama_aset" name="nama_aset" placeholder="Enter Asset Name" value="{{ old('nama_aset') }}">
-            </div>
-            <div class="form-group">
-                <label for="qty">Jumlah</label>
-                <input type="number" class="form-control" id="qty" name="qty" placeholder="Enter Asset Name" value="{{ old('qty') }}">
+                <label for="category_id">Pilih Nama Category</label>
+                <select class="form-control" id="category_id" name="category_id">
+                    @foreach ($categories as $category)
+                    <option value="{{ $category->id }}">{{ $category->nama }}</option>
+                    @endforeach
+                </select>
             </div>
             <div class="form-group">
                 <label for="harga">Harga</label>

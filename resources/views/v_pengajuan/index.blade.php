@@ -33,7 +33,6 @@
                     <th>Kode Pengajuan</th>
                     <th>User Yang Mengajukan</th>
                     <th>Nama Aset</th>
-                    <th>Jumlah Aset Yang Diajukan</th>
                     <th>Harga</th>
                     <th>Tanggal Pengajuan</th>
                     <th>Status</th>
@@ -51,8 +50,7 @@
                     <td>{{ $i++ }}</td>
                     <td>{{ $row->kd_pengajuan }}</td>
                     <td>{{ $row->user->name }}</td>
-                    <td>{{ $row->nama_aset }}</td>
-                    <td>{{ $row->qty }}</td>
+                    <td>{{ $row->category->nama }}</td>
                     <td>{{ intToRupiah($row->harga) }}</td>
                     <td>{{ $row->created_at }}</td>
                     <td>

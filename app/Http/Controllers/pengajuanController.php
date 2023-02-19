@@ -8,6 +8,7 @@ use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use App\Http\Requests\Pengajuan\StorePengajuanRequest;
 use App\Http\Requests\Pengajuan\UpdatePengajuanRequest;
+use App\Models\Category;
 use App\Services\GenerateKodePengajuanService;
 use Exception;
 use Illuminate\Http\RedirectResponse;
@@ -24,7 +25,10 @@ class pengajuanController extends Controller
 
     public function create()
     {
-        return view('v_pengajuan.addform');
+        $data = [
+            "categories" => Category::all()
+        ];
+        return view('v_pengajuan.addform', $data);
     }
 
     public function store(StorePengajuanRequest $request): RedirectResponse
@@ -42,7 +46,8 @@ class pengajuanController extends Controller
         } catch (Exception $e) {
             $response = [
                 "success" => false,
-                "message" => "Terjadi kesalahan silahkan coba lagi"
+                // "message" => "Terjadi kesalahan silahkan coba lagi"
+                "message" => $e->getMessage()
             ];
         }
         if ($this->isError($response))

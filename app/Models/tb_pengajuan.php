@@ -15,7 +15,8 @@ class tb_pengajuan extends Model
         'nama_aset',
         'qty',
         'harga',
-        "status"
+        "status",
+        "category_id"
     ];
 
     public function user()

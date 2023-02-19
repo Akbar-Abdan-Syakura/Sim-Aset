@@ -24,8 +24,7 @@ class StorePengajuanRequest extends FormRequest
     public function rules()
     {
         return [
-            "nama_aset" => "",
-            "qty" => "numeric|required",
+            "category_id" => "required",
             "harga" => ""
         ];
     }
