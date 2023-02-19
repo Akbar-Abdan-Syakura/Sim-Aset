@@ -65,13 +65,13 @@
                                 <p> Data Aset </p>
                             </a>
                         </li>
+                        @cannot('isBranch')
                         <li class="nav-item">
                             <a href="{{ route('category.index') }}" class="nav-link {{ request()->is('categories*') ? 'active' : '' }}">
                                 <i class="fas fa-tasks"></i>
                                 <p> Data Kategori </p>
                             </a>
                         </li>
-                        @cannot('isBranch')
                         <li class="nav-item">
                             <a href="/monitoring" class="nav-link {{ request()->is('monitoring*') ? 'active' : '' }}">
                                 <i class="nav-icon fas fa-eye"></i>

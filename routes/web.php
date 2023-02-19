@@ -46,7 +46,8 @@ Route::middleware(["auth", "roles:admin,manager,gm,branch"])
         Route::group([
             "controller" => CategoryController::class,
             "prefix" => "categories",
-            "as" => "category."
+            "as" => "category.",
+            "middleware" => "prevent_roles:branch"
         ], function () {
             Route::get('/', 'index')->name('index');
             Route::get('/create', 'create')->name('create');

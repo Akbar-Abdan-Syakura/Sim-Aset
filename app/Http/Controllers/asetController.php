@@ -16,16 +16,23 @@ use App\Models\tb_umur_ekonomis;
 use App\Services\GenerateKodeAssetService;
 use Exception;
 use Illuminate\Http\RedirectResponse;
+use Illuminate\Support\Facades\Auth;
 
 class asetController extends Controller
 {
     public function index()
     {
         $cabangId = request()->query("cabang");
-        if ($cabangId) {
-            $data = tb_aset::with(['cabang', 'penempatan', 'kondisi', 'category'])->where("cabang_id", $cabangId)->paginate(10);
+        $userCabangId = Auth::user()->cabang_id;
+
+        if ($userCabangId) {
+            $data = tb_aset::with(['cabang', 'penempatan', 'kondisi', 'category'])->where("cabang_id", $userCabangId)->paginate(10);
         } else {
-            $data = tb_aset::with(['cabang', 'penempatan', 'kondisi', 'category'])->paginate(10);
+            if ($cabangId) {
+                $data = tb_aset::with(['cabang', 'penempatan', 'kondisi', 'category'])->where("cabang_id", $cabangId)->paginate(10);
+            } else {
+                $data = tb_aset::with(['cabang', 'penempatan', 'kondisi', 'category'])->paginate(10);
+            }
         }
         $result = new asetResource($data);
         return view('v_aset.index', compact('result'));

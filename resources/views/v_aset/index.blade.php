@@ -13,7 +13,9 @@
         @endcanany
     </div>
     <div class="card-body">
+        @cannot('isBranch')
         <x-cabang-navbar></x-cabang-navbar>
+        @endcannot
         <table id="myTable" class="table table-bordered table-striped mb-4">
             <thead>
                 <tr>

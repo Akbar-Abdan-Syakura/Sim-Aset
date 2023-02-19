@@ -18,7 +18,6 @@ class pengajuanController extends Controller
     public function index(Request $request)
     {
         $type = $request->input("type", "pending");
-
         $data = tb_pengajuan::with('user')->where("status", $type)->paginate(10);
         return view('v_pengajuan.index', compact('data'));
     }
