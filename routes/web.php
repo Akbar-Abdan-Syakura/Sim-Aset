@@ -39,7 +39,7 @@ Route::middleware(["auth", "roles:admin,manager,gm,branch"])
     ->group(function () {
 
         //route Dashboard----------------------------------------------------------------------
-        Route::get('/', [dashboardController::class, 'index'])->middleware("prevent_roles:branch");
+        Route::get('/', [dashboardController::class, 'index']);
         // -------------------------------------------------------------------------------------
 
         Route::get('/aset', [asetController::class, 'index'])->name('aset');

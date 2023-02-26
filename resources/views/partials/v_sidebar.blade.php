@@ -28,7 +28,6 @@
                 <!-- Add icons to the links using the .nav-icon class
                 with font-awesome or any other icon font library -->
                 @canany(['isAdmin', 'isBranch', 'isGm', 'isManager'])
-                @cannot('isBranch')
                 <li class="nav-item">
                     <a href="/" class="nav-link {{ request()->is('/*') ? 'active' : '' }}">
                         <i class="nav-icon fas fa-home"></i>
@@ -37,7 +36,6 @@
                         </p>
                     </a>
                 </li>
-                @endcannot
                 <li class="nav-item">
                     <a href="#" class="nav-link">
                         <i class="nav-icon fab fa-mdb"></i>

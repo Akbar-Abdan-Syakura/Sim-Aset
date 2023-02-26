@@ -4,7 +4,6 @@
 @section('content')
 <div class="card">
     <div class="card-body">
-
         <button class="btn btn-primary mb-4" id="generate">Generate</button>
         @cannot('isBranch')
         <x-cabang-navbar></x-cabang-navbar>

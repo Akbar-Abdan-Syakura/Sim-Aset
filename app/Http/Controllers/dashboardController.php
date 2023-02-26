@@ -8,12 +8,50 @@ use App\Services\AssetAgeService;
 use App\Statics\BobotStatic;
 use App\Http\Controllers\Controller;
 use App\Models\Category;
+use Illuminate\Support\Facades\Auth;
 
 class dashboardController extends Controller
 {
     public function index()
     {
-        $dataAsset = tb_aset::with(['cabang', 'penempatan',  'kondisi'])->whereIn("kondisi_id", [3, 4])->where("harga", ">", 100000)->get();
+        $cabangId = request()->query("cabang");
+        if ($cabangId) {
+            $dataAssetMonitoring = tb_aset::with("cabang", "penempatan", "kondisi", "category")->where("cabang_id", $cabangId)->get();
+        } else {
+            if(Auth::user()->role_id==4){
+                $dataAssetMonitoring = tb_aset::with("cabang", "penempatan", "kondisi", "category")->where("cabang_id", Auth::user()->cabang_id)->get();
+            }else{
+                $dataAssetMonitoring = tb_aset::with("cabang", "penempatan", "kondisi", "category")->get();
+            }
+        }
+
+        $dataAssetMonitoring = collect($dataAssetMonitoring);
+        $dataAssetMonitoring = $dataAssetMonitoring->filter(function ($item) {
+            AssetAgeService::setAssetAge($item);
+            if ($item->category->umur) {
+                $umur = $item->category->umur->umur_ekonomis;
+                $umur = explode(" ", $umur);
+                $umur = $umur[0];
+                if ($item["usia_aset"] >= $umur) {
+                    return true;
+                }
+            }
+
+            if ($item->kondisi_id == 3 || $item->kondisi_id == 4) {
+                return true;
+            }
+        });
+
+
+        if($cabangId){
+            $dataAsset = tb_aset::with(['cabang', 'penempatan',  'kondisi'])->whereIn("kondisi_id", [3, 4])->where("harga", ">", 100000)->where("cabang_id", $cabangId)->get();
+        }else{
+            if(Auth::user()->role_id==4){
+                $dataAsset = tb_aset::with(['cabang', 'penempatan',  'kondisi'])->whereIn("kondisi_id", [3, 4])->where("harga", ">", 100000)->where("cabang_id", Auth::user()->cabang_id)->get();
+            }else{
+                $dataAsset = tb_aset::with(['cabang', 'penempatan',  'kondisi'])->whereIn("kondisi_id", [3, 4])->where("harga", ">", 100000)->get();
+            }
+        }
         if ($dataAsset->count() > 0) {
 
             $dataAsset = collect($dataAsset)->map(function ($item) {
@@ -89,7 +127,15 @@ class dashboardController extends Controller
             $dataAssetFinal = collect([]);
         }
 
-        $dataMonitoring = tb_aset::whereIn("kondisi_id", [1, 2, 3, 4])->get();
+        if($cabangId){
+            $dataMonitoring = tb_aset::whereIn("kondisi_id", [1, 2, 3, 4])->where("cabang_id", $cabangId)->get();
+        }else{
+            if(Auth::user()->role_id==4){
+                $dataMonitoring = tb_aset::whereIn("kondisi_id", [1, 2, 3, 4])->where("cabang_id", Auth::user()->cabang_id)->get();
+            }else{
+                $dataMonitoring = tb_aset::whereIn("kondisi_id", [1, 2, 3, 4])->get();
+            }
+        }
         $dataMonitoring = collect($dataMonitoring);
         $dataMonitoring = $dataMonitoring->filter(function ($item) {
             AssetAgeService::setAssetAge($item);
@@ -106,7 +152,10 @@ class dashboardController extends Controller
                 return true;
             }
         });
+
+
         $data = [
+            "assets" => $dataAssetMonitoring,
             "totalAsset" => Category::all()->count(),
             "totalRekomendasi" => $dataAssetFinal->count() ?? 0,
             "totalPengajuan" => tb_pengajuan::all()->count(),
