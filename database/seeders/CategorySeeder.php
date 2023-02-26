@@ -20,12 +20,14 @@ class CategorySeeder extends Seeder
                 'nama' => 'Rumah',
                 'spek' => 'Tanah dan Bangunan SHM no.0258/Mekarrahayu dan no.02541/Mekarrahayu',
                 'umur_ekonomis_id' => '1',
+                "kriteria_id" => 1
             ],
             [
                 'kd_category' => 'AST-00002',
                 'nama' => 'AC 1PK',
                 'spek' => 'samsung/z-pipe05/putih',
                 'umur_ekonomis_id' => '3',
+                "kriteria_id" => 2
             ],
         ];
 

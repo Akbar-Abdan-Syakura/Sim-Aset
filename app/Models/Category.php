@@ -19,4 +19,9 @@ class Category extends Model
     {
         return $this->hasMany(tb_aset::class);
     }
+
+    public function kriteria()
+    {
+        return $this->belongsTo(Kriteria::class);
+    }
 }

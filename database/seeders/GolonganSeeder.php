@@ -15,10 +15,10 @@ class GolonganSeeder extends Seeder
     public function run()
     {
         $data =[
-            ["name" => "aset", "kode" => "01"],
-            ["name" => "peralatan", "kode" => "04"],
-            ["name" => "inventaris kantor", "kode" => "05"],
-            ["name" => "inventaris kantor", "kode" => "05"],
+            ["nama" => "aset", "kode" => "01"],
+            ["nama" => "peralatan", "kode" => "04"],
+            ["nama" => "inventaris kantor", "kode" => "05"],
+            ["nama" => "inventaris kantor", "kode" => "05"],
         ];
 
         foreach ($data as $key => $value) {

@@ -22,6 +22,8 @@ class DatabaseSeeder extends Seeder
             PenempatanSeeder::class,
             UmurEkonomisSeeder::class,
             RoleSeeder::class,
+            GolonganSeeder::class,
+            KriteriaSeeder::class,
         ]);
     }
 }

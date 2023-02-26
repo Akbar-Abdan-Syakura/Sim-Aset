@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class CreateGolongansTable extends Migration
+class AddColumnKriteriaIdOnCategoryAset extends Migration
 {
     /**
      * Run the migrations.
@@ -13,11 +13,9 @@ class CreateGolongansTable extends Migration
      */
     public function up()
     {
-        Schema::create('golongans', function (Blueprint $table) {
-            $table->id();
-            $table->string("name");
-            $table->string("kode");
-            $table->timestamps();
+        Schema::table("categories", function (Blueprint $table)
+        {
+            $table->unsignedBigInteger("kriteria_id")->after("umur_ekonomis_id")->nullable();
         });
     }
 
@@ -28,6 +26,9 @@ class CreateGolongansTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('golongans');
+        Schema::table("categories", function (Blueprint $table)
+        {
+            $table->dropColumn("kriteria_id");
+        });
     }
 }

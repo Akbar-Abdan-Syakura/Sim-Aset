@@ -5,17 +5,17 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
-class Golongan extends Model
+class Kriteria extends Model
 {
     use HasFactory;
 
     protected $fillable = [
-        "nama", "kode",
+        "nama", "kode", "golongan_id"
     ];
 
 
-    public function kriteria()
+    public function golongan()
     {
-        return $this->hasMany(Kriteria::class);
+        return $this->belongsTo(Golongan::class);
     }
 }
