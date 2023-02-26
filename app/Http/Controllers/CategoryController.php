@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Http\Requests\StoreCategoryRequest;
 use App\Http\Requests\UpdateCategoryRequest;
 use App\Models\Category;
+use App\Models\Kriteria;
 use App\Models\tb_umur_ekonomis;
 use App\Services\GenerateKodeCategoryService;
 use Exception;
@@ -22,7 +23,8 @@ class CategoryController extends Controller
     public function create()
     {
         $data = [
-            "umur_aset" => tb_umur_ekonomis::all()
+            "umur_aset" => tb_umur_ekonomis::all(),
+            "kriterias" => Kriteria::all()
         ];
         return response()->view("v_categories.create", $data);
     }
@@ -31,7 +33,7 @@ class CategoryController extends Controller
     {
         try {
             $requestedData = $request->validated();
-            $requestedData["kd_category"] = GenerateKodeCategoryService::getGeneratedKode();
+            $requestedData["kd_category"] = GenerateKodeCategoryService::getGeneratedKode($requestedData);
             Category::create($requestedData);
 
             return redirect()->to(route("category.index"))->with("success", "Menambahkan data category berhasil");

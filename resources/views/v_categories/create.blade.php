@@ -14,6 +14,15 @@
                 <input type="text" class="form-control" id="nama" name="nama" placeholder="Enter Name Of The Branch Office">
             </div>
             <div class="form-group">
+                <label for="nama">Kriteria</label>
+                <select class="form-control" aria-label="Default select example" name="kriteria_id">
+                    <option selected>Pilih Kriteria</option>
+                    @foreach ($kriterias as $item)
+                    <option value="{{ $item->id }}">{{ ucfirst($item->golongan->nama) }} | {{ ucfirst($item->nama) }}</option>
+                    @endforeach
+                </select>
+            </div>
+            <div class="form-group">
                 <label for="nama">Umur Ekonomis</label>
                 <select class="form-control" aria-label="Default select example" name="umur_ekonomis_id">
                     <option selected>Pilih Umur Ekonomis</option>

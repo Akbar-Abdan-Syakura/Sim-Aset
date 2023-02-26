@@ -26,7 +26,8 @@ class StoreCategoryRequest extends FormRequest
         return [
             "nama" => "",
             "spek" => "",
-            "umur_ekonomis_id" => "required|numeric"
+            "umur_ekonomis_id" => "required|numeric",
+            "kriteria_id" => "required|numeric",
         ];
     }
 }
