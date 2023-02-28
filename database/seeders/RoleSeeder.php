@@ -29,7 +29,7 @@ class RoleSeeder extends Seeder
             ],
             [
                 "name" => "branch",
-                "fullname" => "Perwakilan Cabang"
+                "fullname" => "Kepala Kantor Cabang"
             ],
         ];
         // "admin", "manager", "gm", "branch"

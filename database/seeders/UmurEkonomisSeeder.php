@@ -17,7 +17,7 @@ class UmurEkonomisSeeder extends Seeder
 
         $umur = [
             [
-                'kelompok' => 'Bangunan',
+                'kelompok' => 'Tanah dan Bangunan',
                 'umur_ekonomis' => '20 Tahun',
                 'created_at' => date('Y-m-d H:i:s'),
                 'updated_at' => date('Y-m-d H:i:s'),
