@@ -66,52 +66,8 @@
                 </div>
 
             </div>
-            <div class="row">
-                <div class="col-12">
-                    <div class="card">
-                        <div class="card-header">
-                            Pengajuan Terakhir
-                        </div>
-                        <div class="card-body">
-                            <table class="table">
-                                <thead>
-                                    <tr>
-                                        <th scope="col">#</th>
-                                        <th scope="col">Kode Pengajuan</th>
-                                        <th scope="col">Nama Aset</th>
-                                        <th scope="col">Harga Aset</th>
-                                        <th scope="col">Status</th>
-                                        <th scope="col">Pemohon</th>
-                                        <th scope="col">Diajukan Pada</th>
-                                    </tr>
-                                </thead>
-                                <tbody>
-                                    @foreach ($latestPengajuan as $key => $item)
-                                        <tr>
-                                            <th scope="row">{{ $key + 1 }}</th>
-                                            <td>{{ $item->kd_pengajuan }}</td>
-                                            <td>{{ $item->category->nama }}</td>
-                                            <td>{{ intToRupiah($item->harga) }}</td>
-                                            {{-- <td>{{ $item->status }}</td> --}}
-                                            <td>
-                                                <span
-                                                    class="badge
-                        @if ($item->status == 'tolak') badge-danger @elseif($item->status == 'setuju') badge-primary @elseif ($item->status == 'pending') badge-secondary @endif ">
-                                                    {{ ucfirst($item->status) }}
-                                                </span>
-                                            </td>
-                                            <td>{{ $item->user->name }}</td>
-                                            <td>{{ $item->created_at }}</td>
-                                        </tr>
-                                    @endforeach
-                                </tbody>
-                            </table>
-                        </div>
-                    </div>
-                </div>
-            </div>
 
-            {{-- <div class="row">
+            <div class="row">
                 <div class="col-12">
                     <div class="card">
                         <div class="card-header">
@@ -162,7 +118,52 @@
                         </div>
                     </div>
                 </div>
-            </div> --}}
+            </div>
+
+            <div class="row">
+                <div class="col-12">
+                    <div class="card">
+                        <div class="card-header">
+                            Pengajuan Terakhir
+                        </div>
+                        <div class="card-body">
+                            <table class="table">
+                                <thead>
+                                    <tr>
+                                        <th scope="col">#</th>
+                                        <th scope="col">Kode Pengajuan</th>
+                                        <th scope="col">Nama Aset</th>
+                                        <th scope="col">Harga Aset</th>
+                                        <th scope="col">Status</th>
+                                        <th scope="col">Pemohon</th>
+                                        <th scope="col">Diajukan Pada</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    @foreach ($latestPengajuan as $key => $item)
+                                        <tr>
+                                            <th scope="row">{{ $key + 1 }}</th>
+                                            <td>{{ $item->kd_pengajuan }}</td>
+                                            <td>{{ $item->category->nama }}</td>
+                                            <td>{{ intToRupiah($item->harga) }}</td>
+                                            {{-- <td>{{ $item->status }}</td> --}}
+                                            <td>
+                                                <span
+                                                    class="badge
+                        @if ($item->status == 'tolak') badge-danger @elseif($item->status == 'setuju') badge-primary @elseif ($item->status == 'pending') badge-secondary @endif ">
+                                                    {{ ucfirst($item->status) }}
+                                                </span>
+                                            </td>
+                                            <td>{{ $item->user->name }}</td>
+                                            <td>{{ $item->created_at }}</td>
+                                        </tr>
+                                    @endforeach
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                </div>
+            </div>
     </section>
 @endsection
 
