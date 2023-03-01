@@ -16,7 +16,7 @@ class CategorySeeder extends Seeder
     {
         $categories = [
             [
-                'kd_category' => '04.01.001',
+                'kd_category' => '01.01.001',
                 'nama' => 'Rumah',
                 'spek' => 'Tanah dan Bangunan SHM no.0258/Mekarrahayu dan no.02541/Mekarrahayu',
                 'umur_ekonomis_id' => '1',
