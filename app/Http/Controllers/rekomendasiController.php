@@ -12,13 +12,18 @@ class rekomendasiController extends Controller
     public function index()
     {
         $cabangId = request()->query("cabang");
+        $kriteriaId = request()->query("kriteria");
+        $dataAsset= tb_aset::with(['cabang', 'penempatan', 'kondisi'])->whereIn("kondisi_id", [3, 4])->where("harga", ">", 100000);
         if ($cabangId) {
-            $dataAsset = tb_aset::with(['cabang', 'penempatan', 'kondisi'])->whereIn("kondisi_id", [3, 4])->where("harga", ">", 100000)->where("cabang_id", $cabangId)->get();
-        } else {
-            $dataAsset = tb_aset::with(['cabang', 'penempatan', 'kondisi'])->whereIn("kondisi_id", [3, 4])->where("harga", ">", 100000)->get();
+            $dataAsset = $dataAsset->where("cabang_id", $cabangId);
         }
+        if($kriteriaId){
+            $dataAsset = $dataAsset->whereHas("category",function ($query) use($kriteriaId){
+                return $query->where("kriteria_id", $kriteriaId);
+            });
+        }
+        $dataAsset = $dataAsset->get();
         if ($dataAsset->count() > 0) {
-
             $dataAsset = collect($dataAsset)->map(function ($item) {
                 AssetAgeService::setAssetAge($item);
 
@@ -54,7 +59,6 @@ class rekomendasiController extends Controller
 
                 return $item;
             });
-            // dd($dataAsset);
             $maxC1 = $dataAsset->max("c1");
             $maxC2 = $dataAsset->max("c2");
             $minC3 = $dataAsset->min("c3");
@@ -67,7 +71,6 @@ class rekomendasiController extends Controller
                 $item["preferensiV"] = (0.3 * $item["c1SAW"]) + (0.4 * $item["c2SAW"]) + (0.3 * $item["c3SAW"]);
                 return $item;
             });
-            // dd($dataAssetSAW);
 
             $sumPreferensi = $dataAssetSAW->sum("preferensiV");
             $sumPreferensiRusakRingan = $dataAssetSAW->where("kondisi_id", 3)->sum("preferensiV");

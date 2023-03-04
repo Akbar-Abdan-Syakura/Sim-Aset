@@ -14,6 +14,7 @@
             <thead>
                 <tr>
                     <th>No.</th>
+                    <th>Kode Category</th>
                     <th>Kode Aset</th>
                     <th>Nama Aset</th>
                     <th>Kantor Cabang</th>
@@ -26,6 +27,7 @@
                 @foreach ($assets as $key => $row)
                 <tr>
                     <td>{{ $key + 1 }}</td>
+                    <td>{{ $row->category->kd_category }}</td>
                     <td>{{ $row->kd_aset }}</td>
                     <td>{{ $row->category->nama }}</td>
                     <td>{{ $row->cabang->nama_cbng }}</td>

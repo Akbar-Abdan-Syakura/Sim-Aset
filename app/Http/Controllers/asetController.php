@@ -23,17 +23,23 @@ class asetController extends Controller
     public function index()
     {
         $cabangId = request()->query("cabang");
+        $kriteriaId = request()->query("kriteria");
         $userCabangId = Auth::user()->cabang_id;
 
         if ($userCabangId) {
-            $data = tb_aset::with(['cabang', 'penempatan', 'kondisi', 'category'])->where("cabang_id", $userCabangId)->paginate(10);
+            $data = tb_aset::with(['cabang', 'penempatan', 'kondisi', 'category'])->where("cabang_id", $userCabangId);
         } else {
+            $data = tb_aset::select("*");
             if ($cabangId) {
-                $data = tb_aset::with(['cabang', 'penempatan', 'kondisi', 'category'])->where("cabang_id", $cabangId)->paginate(10);
-            } else {
-                $data = tb_aset::with(['cabang', 'penempatan', 'kondisi', 'category'])->paginate(10);
+                $data = $data->where("cabang_id", $cabangId);
             }
         }
+        if($kriteriaId){
+            $data = $data->whereHas("category" , function ($query) use($kriteriaId){
+                    return $query->where("kriteria_id", $kriteriaId);
+            });
+        }
+        $data = $data->paginate(10);
         $result = new asetResource($data);
         return view('v_aset.index', compact('result'));
     }
