@@ -2,12 +2,16 @@
 
 namespace App\View\Components;
 
+use App\Models\Golongan;
+use App\Models\Kriteria;
 use App\Models\tb_cabang;
 use Illuminate\View\Component;
 
 class CabangNavbar extends Component
 {
     public $cabangNav;
+    public $kriterias;
+    public $golongan;
     /**
      * Create a new component instance.
      *
@@ -16,6 +20,8 @@ class CabangNavbar extends Component
     public function __construct()
     {
         $this->cabangNav = tb_cabang::all();
+        $this->kriterias = Kriteria::all();
+        $this->golongan = Golongan::all();
     }
 
     /**

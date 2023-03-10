@@ -12,6 +12,7 @@
             <thead>
                 <tr>
                     <th>No.</th>
+                    <th>Kode Category</th>
                     <th>Kode Aset</th>
                     <th>Nama</th>
                     <th>Penempatan</th>
@@ -28,6 +29,7 @@
                 @foreach ($assets as $key => $asset)
                 <tr>
                     <td>{{ $key + 1 }}</td>
+                    <td>{{ $asset->category->kd_category }}</td>
                     <td>{{ $asset->kd_aset }}</td>
                     <td>{{ $asset->category->nama }}</td>
                     <td>{{ $asset->penempatan->penempatan ?? '-' }}</td>
